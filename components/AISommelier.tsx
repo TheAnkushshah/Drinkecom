@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { X, Send, Wine, Sparkles, Loader2, RefreshCcw } from 'lucide-react';
 import { createSommelierChat } from '../services/gemini';
@@ -13,8 +12,10 @@ const AISommelier: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Persistent chat session for the duration of the component lifecycle
-  const chatSession = useMemo(() => createSommelierChat(), []);
+  const isEnabled = Boolean(import.meta.env.VITE_GEMINI_API_KEY && import.meta.env.VITE_GEMINI_API_KEY !== 'your_actual_gemini_api_key_here');
+
+  // Persistent chat session only if enabled
+  const chatSession = useMemo(() => (isEnabled ? createSommelierChat() : null), [isEnabled]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -29,6 +30,12 @@ const AISommelier: React.FC = () => {
     setInput('');
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     
+    // If disabled, respond locally without streaming
+    if (!chatSession) {
+      setMessages(prev => [...prev, { role: 'ai', text: "AI Sommelier is temporarily unavailable. Browse 'Signature Releases' or use Shop filters for curated picks." }]);
+      return;
+    }
+
     // Add a placeholder for the AI response
     setMessages(prev => [...prev, { role: 'ai', text: '' }]);
     setIsLoading(true);
