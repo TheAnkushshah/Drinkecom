@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -226,8 +227,6 @@ const App: React.FC = () => {
     }
   };
 
-  const enableAI = Boolean((import.meta as any).env.VITE_GEMINI_API_KEY && (import.meta as any).env.VITE_GEMINI_API_KEY !== 'your_actual_gemini_api_key_here');
-
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#722f3f] selection:text-white relative">
       {!isAgeVerified && <AgeVerification onVerify={() => setIsAgeVerified(true)} />}
@@ -243,7 +242,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer onNavigate={navigate} />
-      {enableAI && <AISommelier />}
+      <AISommelier />
 
       {/* Luxury Toast Notification */}
       {toast.visible && (

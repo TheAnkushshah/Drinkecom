@@ -1,19 +1,9 @@
+
 import { GoogleGenAI } from "@google/genai";
 import { MOCK_WINES } from "../constants";
 
-// Use Vite env in the browser
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-export const isGeminiEnabled = Boolean(API_KEY && API_KEY !== 'your_actual_gemini_api_key_here');
-
-// Safe client initialization (no throw)
-let ai: GoogleGenAI | null = null;
-try {
-  if (isGeminiEnabled) {
-    ai = new GoogleGenAI({ apiKey: API_KEY });
-  }
-} catch {
-  ai = null;
-}
+// Initialize the GoogleGenAI client with the API key from environment variables.
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const wineCatalog = MOCK_WINES.map(w => ({
   name: w.name,
@@ -48,29 +38,15 @@ const SYSTEM_INSTRUCTION = `
  * Creates a new stateful chat session with the Sommelier.
  * Uses gemini-3-pro-preview for advanced reasoning and world-class recommendations.
  */
-export function createSommelierChat() {
-  // If SDK not ready, return a local fallback streamer
-  if (!ai) {
-    return {
-      async sendMessageStream({ message }: { message: string }) {
-        async function* gen() {
-          const tip = `AI is unavailable. Suggestion based on catalog: Try "${MOCK_WINES[0]?.name}" with ${MOCK_WINES[0]?.foodPairings?.[0] || 'classic pairings'}.`;
-          yield { text: tip } as any;
-        }
-        return gen();
+export const createSommelierChat = () => {
+  return ai.chats.create({
+    model: "gemini-3-pro-preview",
+    config: {
+      systemInstruction: SYSTEM_INSTRUCTION,
+      temperature: 0.75,
+      thinkingConfig: { 
+        thinkingBudget: 8000 // Reserve budget for high-quality sommelier reasoning
       }
-    };
-  }
-
-  // TODO: Replace with real model/chat once SDK is confirmed working in browser
-  return {
-    async sendMessageStream({ message }: { message: string }) {
-      async function* gen() {
-        // Lightweight echo with curated hint so the UI keeps working
-        const hint = `Considering "${message}", explore ${MOCK_WINES[0]?.varietal} from ${MOCK_WINES[0]?.region}.`;
-        yield { text: hint } as any;
-      }
-      return gen();
-    }
-  };
-}
+    },
+  });
+};
