@@ -1,0 +1,7 @@
+{
+  "name": "G-Town Wines - Premium E-Commerce",
+  "description": "A luxury wine e-commerce platform featuring an AI Sommelier, curated collections, and wine club memberships.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
