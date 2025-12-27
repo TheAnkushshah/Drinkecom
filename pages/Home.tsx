@@ -200,8 +200,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-xl">
-              <h2 className="text-5xl font-serif text-[#2a2a2a] mb-6">Signature Releases</h2>
-              <p className="text-gray-500 font-lora italic text-lg leading-relaxed">
+              <h2 className="text-4xl md:text-5xl font-serif text-[#2a2a2a] mb-6">Signature Releases</h2>
+              <p className="text-gray-500 font-lora italic text-md md:text-lg leading-relaxed">
                 Hand-picked by our Master Sommelier, these vintages represent the pinnacle of this season's harvest.
               </p>
             </div>
