@@ -191,7 +191,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
       {/* DOMINION NAVIGATION LINKS */}
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-wrap justify-center gap-x-12 gap-y-6 text-[10px] font-bold uppercase tracking-[0.4em] text-gray-500 relative z-10">
-        {['Home', 'Our Dominion', 'Signature Outlets', 'Curated Portfolio', 'Legacy of Excellence', 'In the Elite Spotlight', 'Connoisseur Codex'].map(link => (
+        {['Our Dominion', 'Signature Outlets', 'Curated Portfolio', 'Legacy of Excellence', 'In the Elite Spotlight', 'Connoisseur Codex'].map(link => (
           <button key={link} className="hover:text-white hover:text-[#d4af37] transition-colors duration-300" onClick={() => onNavigate?.(link.toLowerCase().includes('portfolio') || link.toLowerCase().includes('outlets') ? 'shop' : link.toLowerCase().includes('legacy') ? 'about' : link.toLowerCase().includes('spotlight') ? 'home' : 'shop')}>{link}</button>
         ))}
       </div>
@@ -234,7 +234,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
           <div className="flex items-start space-x-6">
              <AlertTriangle size={24} className="text-[#d4af37]/50 group-hover:text-[#d4af37] transition-colors shrink-0" />
-             <p className="text-[10px] text-gray-500 leading-relaxed font-lora italic text-center md:text-left">
+             <p className="text-[10px] text-gray-500 leading-relaxed font-lora italic text-left">
                <span className="text-[#d4af37] font-bold uppercase tracking-widest mr-2">Discretionary Notice | Proposition 65:</span> 
                Drinking distilled spirits, fine wines, and premium beverages may elevate certain health considerations. For comprehensive intelligence, visit 
                <a href="https://www.P65Warnings.ca.gov/alcohol" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#d4af37] transition-colors ml-1">www.P65Warnings.ca.gov/alcohol</a>.
