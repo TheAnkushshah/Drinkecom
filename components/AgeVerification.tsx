@@ -15,7 +15,7 @@ const AgeVerification: React.FC<AgeVerificationProps> = ({ onVerify }) => {
           <span>Verified Access</span>
         </div>
         <div className="space-y-3">
-          <h2 className="text-4xl font-serif text-white">G-Town Wines</h2>
+          <h2 className="text-3xl md:text-4xl font-serif text-white">G-Town Wines</h2>
           <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto" />
           <h3 className="text-sm uppercase tracking-[0.5em] font-bold text-[#d4af37]">Age Verification</h3>
         </div>
