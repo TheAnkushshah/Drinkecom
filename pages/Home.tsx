@@ -3,21 +3,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MOCK_WINES } from '../constants';
 import WineCard from '../components/WineCard';
 import QuickViewModal from '../components/QuickViewModal';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Truck, 
-  Sparkles, 
-  GraduationCap, 
-  Wine as WineIcon, 
-  Quote, 
-  Mail, 
-  ChevronLeft, 
+import {
+  ArrowRight,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+  GraduationCap,
+  Wine as WineIcon,
+  Quote,
+  Mail,
+  ChevronLeft,
   ChevronRight,
   BookOpen,
   Award,
   Headphones,
-  Heart, 
+  Heart,
   Crown,
   Gem,
   GlassWater,
@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
   const [quickViewWine, setQuickViewWine] = useState<Wine | null>(null);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState(true);
-  
+
   // Brands Carousel Ref & Logic
   const brandsRef = useRef<HTMLDivElement>(null);
   const scrollBrands = (direction: 'left' | 'right') => {
@@ -146,7 +146,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
           <source src="https://drinkecom-cdn.b-cdn.net/Video3.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
-        
+
         <div className="relative max-w-7xl mx-auto px-6 w-full z-10 text-[#faf8f5]">
           <div className="max-w-3xl space-y-6 md:space-y-8">
             <h4 className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-[0.60rem] md:text-xs animate-in slide-in-from-top-4 duration-700">Since 2005</h4>
@@ -158,13 +158,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               Crafted with Passion, Delivered with Excellence. Every bottle tells the story of our valley's soul.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4 animate-in fade-in duration-1000 delay-500">
-              <button 
+              <button
                 onClick={() => onNavigate('shop')}
                 className="bg-[#722f3f] hover:bg-[#5a2532] text-white px-12 py-5 uppercase tracking-[0.2em] text-[10px] font-bold transition-all shadow-2xl hover:scale-105"
               >
                 Shop Collection
               </button>
-              <button 
+              <button
                 onClick={() => onNavigate('about')}
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-12 py-5 uppercase tracking-[0.2em] text-[10px] font-bold transition-all hover:scale-105"
               >
@@ -176,7 +176,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
         {/* Audio Toggle Button - Ultra Luxury Integration */}
         <div className="absolute bottom-6 left-6 z-20 animate-in fade-in duration-1000 delay-700">
-          <button 
+          <button
             onClick={() => setIsMuted(!isMuted)}
             className="group flex items-center space-x-4 bg-white/5 backdrop-blur-xl border border-white/10 p-3 rounded-full hover:bg-white/10 hover:border-[#d4af37]/30 transition-all duration-500"
             title={isMuted ? "Unmute Ambiance" : "Mute Ambiance"}
@@ -205,7 +205,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 Hand-picked by our Master Sommelier, these vintages represent the pinnacle of this season's harvest.
               </p>
             </div>
-            <button 
+            <button
               onClick={() => onNavigate('shop')}
               className="group flex items-center space-x-4 text-[#722f3f] uppercase tracking-[0.3em] text-[10px] font-bold"
             >
@@ -215,12 +215,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </div>
             </button>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {featuredWines.map(wine => (
-              <WineCard 
-                key={wine.id} 
-                wine={wine} 
+              <WineCard
+                key={wine.id}
+                wine={wine}
                 onClick={() => onNavigate('product', { id: wine.id })}
                 onAddToCart={(e) => { e.stopPropagation(); onAddToCart(wine); }}
                 onQuickView={(e) => { e.stopPropagation(); setQuickViewWine(wine); }}
@@ -247,11 +247,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 </h2>
                 <div className="h-1 w-24 bg-[#d4af37]"></div>
               </div>
-              
+
               <p className="text-xl font-lora italic text-gray-600 leading-relaxed">
                 Discover an exquisite collection of world-class wines and spirits, curated with unparalleled sophistication and offered at irresistible prices that redefine luxury accessibility.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="p-8 bg-[#faf8f5] border-l-4 border-[#722f3f] shadow-sm">
                   <h3 className="text-xl font-serif mb-3">Every Celebration Deserves Excellence</h3>
@@ -259,7 +259,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                     In a world of fleeting moments, elevate your gatherings with authentic masterpieces. For the discerning host who demands perfection—respectfully sourced, impeccably presented—G-TOWN WINES stands alone as NCR's unrivaled sanctuary for connoisseurs.
                   </p>
                 </div>
-                
+
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#722f3f] flex items-center">
                   <Crown size={16} className="mr-3 text-[#d4af37]" /> Authenticity. Elegance. Uncompromising Quality.
                 </p>
@@ -273,25 +273,25 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               <h3 className="text-2xl font-serif text-center lg:text-left mb-8">How ? G-TOWN WINES Redefines Luxury</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { 
-                    icon: <Gem size={28} className="text-[#d4af37]" />, 
-                    title: "Exclusive Collections", 
-                    desc: "Handpicked vintages from the world's finest vineyards—rarities you won't find elsewhere." 
+                  {
+                    icon: <Gem size={28} className="text-[#d4af37]" />,
+                    title: "Exclusive Collections",
+                    desc: "Handpicked vintages from the world's finest vineyards—rarities you won't find elsewhere."
                   },
-                  { 
-                    icon: <Crown size={28} className="text-[#d4af37]" />, 
-                    title: "Irresistible Prestige Pricing", 
-                    desc: "Luxury without compromise: Premium bottles at prices that captivate the elite palate." 
+                  {
+                    icon: <Crown size={28} className="text-[#d4af37]" />,
+                    title: "Irresistible Prestige Pricing",
+                    desc: "Luxury without compromise: Premium bottles at prices that captivate the elite palate."
                   },
-                  { 
-                    icon: <Heart size={28} className="text-[#d4af37]" />, 
-                    title: "Women-First Elegance", 
-                    desc: "NCR's pioneering women-friendly haven, where sophistication meets seamless celebration." 
+                  {
+                    icon: <Heart size={28} className="text-[#d4af37]" />,
+                    title: "Women-First Elegance",
+                    desc: "NCR's pioneering women-friendly haven, where sophistication meets seamless celebration."
                   },
-                  { 
-                    icon: <GlassWater size={28} className="text-[#d4af37]" />, 
-                    title: "Celebration Perfected", 
-                    desc: "From intimate soirées to grand galas, stock up on bubbly perfection that commands attention." 
+                  {
+                    icon: <GlassWater size={28} className="text-[#d4af37]" />,
+                    title: "Celebration Perfected",
+                    desc: "From intimate soirées to grand galas, stock up on bubbly perfection that commands attention."
                   }
                 ].map((feature, idx) => (
                   <div key={idx} className="bg-[#faf8f5] p-8 rounded-sm border border-[#e8e6e1] hover:border-[#722f3f] transition-all group">
@@ -301,7 +301,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="pt-8 text-center lg:text-left">
                 <p className="text-lg font-serif italic text-[#722f3f]">
                   G-TOWN WINES: Where Authenticity Meets Opulence.
@@ -331,10 +331,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             ].map((stat, i) => (
               <div key={i} className="text-center space-y-4 group">
                 <div className="relative inline-block">
-                   <h3 className="text-5xl md:text-7xl font-serif text-[#d4af37] leading-none mb-2 group-hover:scale-110 transition-transform duration-500">
-                     {stat.value}
-                   </h3>
-                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#d4af37]/40 group-hover:w-16 transition-all duration-500"></div>
+                  <h3 className="text-5xl md:text-7xl font-serif text-[#d4af37] leading-none mb-2 group-hover:scale-110 transition-transform duration-500">
+                    {stat.value}
+                  </h3>
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[#d4af37]/40 group-hover:w-16 transition-all duration-500"></div>
                 </div>
                 <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] font-bold text-gray-400 max-w-[120px] mx-auto leading-relaxed">
                   {stat.label}
@@ -362,12 +362,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="flex flex-col items-center mb-32">
             <div className="max-w-4xl text-center space-y-12">
-               <h3 className="text-3xl md:text-5xl font-serif italic text-[#faf8f5] leading-relaxed">
-                 "Be Original. Acquire the Authentic."
-               </h3>
-               <p className="text-xl font-lora italic text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                 A philosophy upheld with unwavering devotion—delivering an unparalleled shopping sanctuary for women amid NCR's scarcity of refined liquor destinations. G-Town Wines emerges as the pioneering bastion of safety, authenticity, and exclusivity, unveiling niche masterpieces at wholesale prices that redefine opulence.
-               </p>
+              <h3 className="text-3xl md:text-5xl font-serif italic text-[#faf8f5] leading-relaxed">
+                "Be Original. Acquire the Authentic."
+              </h3>
+              <p className="text-xl font-lora italic text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                A philosophy upheld with unwavering devotion—delivering an unparalleled shopping sanctuary for women amid NCR's scarcity of refined liquor destinations. G-Town Wines emerges as the pioneering bastion of safety, authenticity, and exclusivity, unveiling niche masterpieces at wholesale prices that redefine opulence.
+              </p>
             </div>
           </div>
 
@@ -411,17 +411,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 Amid life's crescendo, the clarion call to curate brilliance resounds. No revelry achieves transcendence without impeccable provenance. For the visionary host who orchestrates with precision—respectful, flawless, eternal—authenticity is paramount.
               </p>
               <div className="space-y-4">
-                 <h4 className="text-2xl font-serif text-[#d4af37]">G-Town Wines: The Sole Guarantee of Grandeur.</h4>
-                 <p className="text-sm uppercase tracking-[0.3em] font-bold text-gray-500 italic">Where wholesale whispers meet world-class wonders. Your gateway to the pinnacle wine lifestyle experience.</p>
+                <h4 className="text-2xl font-serif text-[#d4af37]">G-Town Wines: The Sole Guarantee of Grandeur.</h4>
+                <p className="text-sm uppercase tracking-[0.3em] font-bold text-gray-500 italic">Where wholesale whispers meet world-class wonders. Your gateway to the pinnacle wine lifestyle experience.</p>
               </div>
             </div>
             <div className="relative aspect-square">
-               <div className="absolute inset-0 border-2 border-[#d4af37]/20 transform rotate-3 translate-x-4 translate-y-4"></div>
-               <img 
-                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200" 
-                 alt="Luxury Collection" 
-                 className="w-full h-full object-cover relative z-10 filter brightness-75 contrast-125"
-               />
+              <div className="absolute inset-0 border-2 border-[#d4af37]/20 transform rotate-3 translate-x-4 translate-y-4"></div>
+              <img
+                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200"
+                alt="Luxury Collection"
+                className="w-full h-full object-cover relative z-10 filter brightness-75 contrast-125"
+              />
             </div>
           </div>
 
@@ -473,15 +473,55 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </div>
             </div>
 
-            <div className="relative group overflow-hidden shadow-2xl">
-              <div className="aspect-video lg:aspect-square overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1200" alt="Flagship Interior" className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110" />
+            <div className="relative group overflow-hidden shadow-2xl w-full">
+
+              {/* IMAGE WRAPPER */}
+              <div className="
+              relative
+              w-full
+              min-h-[320px]        /* mobile */
+              sm:min-h-[380px]     /* small screens */
+              md:min-h-[420px]     /* tablets */
+              lg:aspect-square     /* desktops */
+              overflow-hidden
+              ">
+                <img
+                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1200"
+                  alt="Flagship Interior"
+                  className="
+                  absolute inset-0
+                  w-full h-full
+                  object-cover
+                  transition-transform
+                  duration-[3000ms]
+                  group-hover:scale-110
+                "
+                />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div className="absolute bottom-10 left-10 right-10 space-y-4">
-                <h4 className="text-[#d4af37] text-[10px] uppercase tracking-[0.5em] font-bold">Our Flagship Masterpiece</h4>
-                <h3 className="text-3xl font-serif">A Breathtaking <span className="italic">35,000 sq. ft.</span> Sanctuary</h3>
-                <p className="text-sm font-lora text-gray-300 italic">The largest of its kind—where connoisseurs immerse in world-class selections, redefining opulence in every acquisition.</p>
+
+              {/* GRADIENT */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+
+              {/* TEXT CONTENT */}
+              <div className="
+                        absolute
+                        bottom-6 sm:bottom-8 lg:bottom-10
+                        left-6 sm:left-8 lg:left-10
+                        right-6 sm:right-8 lg:right-10
+                        space-y-3 sm:space-y-4
+                      ">
+                <h4 className="text-[#d4af37] text-[10px] uppercase tracking-[0.5em] font-bold">
+                  Our Flagship Masterpiece
+                </h4>
+
+                <h3 className="text-2xl sm:text-3xl font-serif">
+                  A Breathtaking <span className="italic">35,000 sq. ft.</span> Sanctuary
+                </h3>
+
+                <p className="text-sm font-lora text-gray-300 italic max-w-xl">
+                  The largest of its kind—where connoisseurs immerse in world-class selections,
+                  redefining opulence in every acquisition.
+                </p>
               </div>
             </div>
           </div>
@@ -519,7 +559,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             ].map((cat, i) => (
               <div key={i} className="bg-[#0d0d0d] p-12 flex flex-col items-center justify-center text-center space-y-6 hover:bg-white/[0.03] transition-all duration-500 group cursor-default">
                 <div className="text-[#d4af37] opacity-30 group-hover:opacity-100 transition-opacity transform group-hover:scale-110 duration-500">
-                   <WineIcon size={28} strokeWidth={1} />
+                  <WineIcon size={28} strokeWidth={1} />
                 </div>
                 <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-gray-500 group-hover:text-white transition-colors">{cat}</span>
               </div>
@@ -528,47 +568,47 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="text-center space-y-20">
             <div className="space-y-4">
-               <h3 className="text-3xl md:text-4xl font-serif italic text-white">The Most Comprehensive Collection in Existence.</h3>
-               <p className="text-xs uppercase tracking-[0.6em] font-bold text-gray-500">Where every pour tells a story of unparalleled heritage and craftsmanship.</p>
+              <h3 className="text-3xl md:text-4xl font-serif italic text-white">The Most Comprehensive Collection in Existence.</h3>
+              <p className="text-xs uppercase tracking-[0.6em] font-bold text-gray-500">Where every pour tells a story of unparalleled heritage and craftsmanship.</p>
             </div>
-            
+
             {/* Logo showcase section - Animated Brands Carousel */}
             <div className="relative group/brands">
               {/* Navigation Arrows (Strictly Preserved) */}
-              <button 
+              <button
                 onClick={() => scrollBrands('left')}
                 className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 p-4 bg-black/40 border border-[#d4af37]/20 rounded-full text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition-all opacity-0 group-hover/brands:opacity-100 backdrop-blur-sm"
               >
                 <ChevronLeft size={24} />
               </button>
-              
-              <div 
+
+              <div
                 ref={brandsRef}
                 className="overflow-x-hidden mask-edges opacity-20 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-[1000ms]"
               >
-                 <div className="animate-marquee py-6">
-                   {[
-                     "BRANCOTT ESTATE", "SAINTE MARGUERITE", "KENWOOD VINEYARDS", "CAMPO VIEJO", "CHURCH ROAD", "GEORGE WYNDHAM", "JACOB'S CREEK", 
-                     "ST HUGO", "YSIOS", "STONELEIGH", "PASTIS 51", "LILLET", "SUZE",
-                     "RICARD", "PERNOD", "ITALICUS", "OJO DE TIGRE", "CODIGO", "OLMECA",
-                     "DEL MAGUEY", "AVION", "ALTOS", "G.H.MUMM", "PERRIER JOUET", "HAVANA CLUB", 
-                     "MALIBU", "MINTTU", "KAHLUA", "RAMAZZOTTI", "BEEFEATER LONDON", "KI NO BI",
-                     "MONKEY 47", "PLYMOUTH GIN", "UNGAVA", "MALFY", "ABSOLUT ELYX", "ABSOLUT.",
-                     "L.ORBE", "OSTOYA VODKA", "ARARAT", "AUGIER", "MARTELL", "BLENDERS PRIDE", "J.P. WISER'S", "L0T 40",
-                     "RABBIT HOLE", "SMOOTH AMBLER", "TX", "IMPERIAL BLUE", "JEFFERSON'S", "ROYAL STAG", "JAMESON", "METHOD AND MADNESS", "MIDLETON", "POWERS",
-                     "REDBREAST", "SPOT WHISKEYS", "100 PIPERS", "ABERLOUR", "BALLANTINE'S", "LONG JOHN",
-                     "PASSPORT SCOTCH", "ROYAL SALUTE", "SCAPA", "SECRET SPEYSIDE", "SOMETHING SPECIAL", "CHIVAS REGAL",
-                     "IMPERIAL", "THE GLENLIVET"
-                   ].map((brand, i) => (
-                     <div key={i} className="flex-shrink-0 flex items-center justify-center min-w-[200px] px-8 py-6 border-x border-white/5 group relative">
-                        <span className="text-xl md:text-2xl font-serif tracking-[0.4em] font-bold text-white group-hover:text-[#d4af37] transition-colors whitespace-nowrap">{brand}</span>
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-px bg-[#d4af37] scale-x-0 group-hover:scale-x-100 transition-transform"></div>
-                     </div>
-                   ))}
-                 </div>
+                <div className="animate-marquee py-6">
+                  {[
+                    "BRANCOTT ESTATE", "SAINTE MARGUERITE", "KENWOOD VINEYARDS", "CAMPO VIEJO", "CHURCH ROAD", "GEORGE WYNDHAM", "JACOB'S CREEK",
+                    "ST HUGO", "YSIOS", "STONELEIGH", "PASTIS 51", "LILLET", "SUZE",
+                    "RICARD", "PERNOD", "ITALICUS", "OJO DE TIGRE", "CODIGO", "OLMECA",
+                    "DEL MAGUEY", "AVION", "ALTOS", "G.H.MUMM", "PERRIER JOUET", "HAVANA CLUB",
+                    "MALIBU", "MINTTU", "KAHLUA", "RAMAZZOTTI", "BEEFEATER LONDON", "KI NO BI",
+                    "MONKEY 47", "PLYMOUTH GIN", "UNGAVA", "MALFY", "ABSOLUT ELYX", "ABSOLUT.",
+                    "L.ORBE", "OSTOYA VODKA", "ARARAT", "AUGIER", "MARTELL", "BLENDERS PRIDE", "J.P. WISER'S", "L0T 40",
+                    "RABBIT HOLE", "SMOOTH AMBLER", "TX", "IMPERIAL BLUE", "JEFFERSON'S", "ROYAL STAG", "JAMESON", "METHOD AND MADNESS", "MIDLETON", "POWERS",
+                    "REDBREAST", "SPOT WHISKEYS", "100 PIPERS", "ABERLOUR", "BALLANTINE'S", "LONG JOHN",
+                    "PASSPORT SCOTCH", "ROYAL SALUTE", "SCAPA", "SECRET SPEYSIDE", "SOMETHING SPECIAL", "CHIVAS REGAL",
+                    "IMPERIAL", "THE GLENLIVET"
+                  ].map((brand, i) => (
+                    <div key={i} className="flex-shrink-0 flex items-center justify-center min-w-[200px] px-8 py-6 border-x border-white/5 group relative">
+                      <span className="text-xl md:text-2xl font-serif tracking-[0.4em] font-bold text-white group-hover:text-[#d4af37] transition-colors whitespace-nowrap">{brand}</span>
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-px bg-[#d4af37] scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <button 
+              <button
                 onClick={() => scrollBrands('right')}
                 className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 p-4 bg-black/40 border border-[#d4af37]/20 rounded-full text-[#d4af37] hover:bg-[#d4af37] hover:text-black transition-all opacity-0 group-hover/brands:opacity-100 backdrop-blur-sm"
               >
@@ -577,13 +617,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
 
             <div className="pt-24 border-t border-white/5 relative">
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#d4af37] rotate-45"></div>
-               <p className="text-2xl md:text-3xl font-serif italic text-[#d4af37] tracking-wide">G-Town Wines: Mastery Beyond Measure.</p>
-               <div className="flex items-center justify-center space-x-12 mt-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
-                 <span>Authenticity</span>
-                 <span>Exclusivity</span>
-                 <span>Unrivaled Elegance</span>
-               </div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#d4af37] rotate-45"></div>
+              <p className="text-2xl md:text-3xl font-serif italic text-[#d4af37] tracking-wide">G-Town Wines: Mastery Beyond Measure.</p>
+              <div className="flex items-center justify-center space-x-12 mt-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
+                <span>Authenticity</span>
+                <span>Exclusivity</span>
+                <span>Unrivaled Elegance</span>
+              </div>
             </div>
           </div>
         </div>
@@ -621,8 +661,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="mb-32">
             <div className="flex items-center space-x-4 mb-12">
-               <Newspaper size={24} className="text-[#d4af37]" />
-               <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">Premier Publications</h3>
+              <Newspaper size={24} className="text-[#d4af37]" />
+              <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">Premier Publications</h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {[
@@ -631,23 +671,23 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 { name: "LUXURY DAILY", date: "October 2025", title: "G-Town Unveils World's Most Comprehensive Portfolio", desc: "From rare Scotch single malts to celestial champagnes, G-Town's vaulted collection positions it as the ultimate connoisseur's dominion." }
               ].map((pub, idx) => (
                 <div key={idx} className="space-y-6 flex flex-col border-t border-gray-200 pt-8 group">
-                   <div className="flex justify-between items-start">
-                     <span className="text-lg font-bold font-serif tracking-widest text-gray-300 group-hover:text-[#d4af37] transition-colors">{pub.name}</span>
-                     <span className="text-[9px] uppercase tracking-widest font-bold text-gray-400">{pub.date}</span>
-                   </div>
-                   <h4 className="text-xl font-serif italic leading-tight group-hover:text-[#722f3f] transition-colors">{pub.title}</h4>
-                   <p className="text-xs font-lora italic text-gray-500 leading-relaxed flex-grow">{pub.desc}</p>
-                   <button className="flex items-center space-x-2 text-[#722f3f] text-[9px] uppercase font-bold tracking-widest border-b border-[#722f3f] pb-1 w-fit mt-4 hover:opacity-70">
-                     <span>Exclusive Feature</span>
-                     <ExternalLink size={10} />
-                   </button>
+                  <div className="flex justify-between items-start">
+                    <span className="text-lg font-bold font-serif tracking-widest text-gray-300 group-hover:text-[#d4af37] transition-colors">{pub.name}</span>
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-gray-400">{pub.date}</span>
+                  </div>
+                  <h4 className="text-xl font-serif italic leading-tight group-hover:text-[#722f3f] transition-colors">{pub.title}</h4>
+                  <p className="text-xs font-lora italic text-gray-500 leading-relaxed flex-grow">{pub.desc}</p>
+                  <button className="flex items-center space-x-2 text-[#722f3f] text-[9px] uppercase font-bold tracking-widest border-b border-[#722f3f] pb-1 w-fit mt-4 hover:opacity-70">
+                    <span>Exclusive Feature</span>
+                    <ExternalLink size={10} />
+                  </button>
                 </div>
               ))}
             </div>
 
             {/* NEW: View All Press Archives Button */}
             <div className="mt-16 flex justify-center">
-               <button 
+              <button
                 onClick={() => onNavigate('education')}
                 className="group flex items-center space-x-4 text-[#722f3f] uppercase tracking-[0.3em] text-[10px] font-bold"
               >
@@ -661,63 +701,63 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 border-t border-gray-200 pt-24">
             <div className="space-y-12">
-               <div className="flex items-center space-x-4">
-                  <FileText size={24} className="text-[#d4af37]" />
-                  <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">Official Press Releases</h3>
-               </div>
-               <div className="space-y-8">
-                 {[
-                   { date: "Dec 15, 2025", title: "Flagship Expansion: 35,000 sq. ft. of Pure Opulence" },
-                   { date: "Nov 10, 2025", title: "\"Be Original\" Campaign: Wholesale Luxury for the Elite" },
-                   { date: "Oct 5, 2025", title: "Celebrates 450+ Outlets: The Pinnacle Achieved" }
-                 ].map((pr, i) => (
-                   <div key={i} className="flex justify-between items-center group cursor-pointer hover:bg-white p-4 -mx-4 transition-all border-b border-gray-50">
-                      <div className="space-y-1">
-                        <span className="text-[9px] font-bold text-[#d4af37] uppercase">{pr.date}</span>
-                        <p className="font-serif italic text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{pr.title}</p>
-                      </div>
-                      <Download size={16} className="text-gray-300 group-hover:text-[#722f3f] transition-colors" />
-                   </div>
-                 ))}
-               </div>
+              <div className="flex items-center space-x-4">
+                <FileText size={24} className="text-[#d4af37]" />
+                <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">Official Press Releases</h3>
+              </div>
+              <div className="space-y-8">
+                {[
+                  { date: "Dec 15, 2025", title: "Flagship Expansion: 35,000 sq. ft. of Pure Opulence" },
+                  { date: "Nov 10, 2025", title: "\"Be Original\" Campaign: Wholesale Luxury for the Elite" },
+                  { date: "Oct 5, 2025", title: "Celebrates 450+ Outlets: The Pinnacle Achieved" }
+                ].map((pr, i) => (
+                  <div key={i} className="flex justify-between items-center group cursor-pointer hover:bg-white p-4 -mx-4 transition-all border-b border-gray-50">
+                    <div className="space-y-1">
+                      <span className="text-[9px] font-bold text-[#d4af37] uppercase">{pr.date}</span>
+                      <p className="font-serif italic text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{pr.title}</p>
+                    </div>
+                    <Download size={16} className="text-gray-300 group-hover:text-[#722f3f] transition-colors" />
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="space-y-12">
-               <div className="flex items-center space-x-4">
-                  <Play size={24} className="text-[#d4af37]" />
-                  <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">In the Elite Spotlight</h3>
-               </div>
-               <div className="grid grid-cols-1 gap-6">
-                 {[
-                   { brand: "NDTV LUXE", title: "CEO Interview: \"Redefining Spirits for the Modern Connoisseur\"" },
-                   { brand: "ET NOW", title: "\"Why G-Town Commands Premium Loyalty\" Live Analysis" },
-                   { brand: "INSTAGRAM", title: "Live with Sommelier Extraordinaire - 50K+ Views" }
-                 ].map((spot, i) => (
-                    <div key={i} className="flex items-center p-6 bg-white border border-[#e8e6e1] hover:shadow-lg transition-all cursor-pointer group">
-                      <div className="w-12 h-12 bg-[#faf8f5] rounded-full flex items-center justify-center mr-6 group-hover:bg-[#722f3f] group-hover:text-white transition-all">
-                        <Play size={14} fill="currentColor" />
-                      </div>
-                      <div>
-                        <span className="text-[9px] uppercase tracking-widest font-bold text-[#722f3f]">{spot.brand}</span>
-                        <p className="font-serif text-sm leading-tight text-gray-600 mt-1">{spot.title}</p>
-                      </div>
+              <div className="flex items-center space-x-4">
+                <Play size={24} className="text-[#d4af37]" />
+                <h3 className="text-sm uppercase tracking-[0.4em] font-bold text-[#722f3f]">In the Elite Spotlight</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-6">
+                {[
+                  { brand: "NDTV LUXE", title: "CEO Interview: \"Redefining Spirits for the Modern Connoisseur\"" },
+                  { brand: "ET NOW", title: "\"Why G-Town Commands Premium Loyalty\" Live Analysis" },
+                  { brand: "INSTAGRAM", title: "Live with Sommelier Extraordinaire - 50K+ Views" }
+                ].map((spot, i) => (
+                  <div key={i} className="flex items-center p-6 bg-white border border-[#e8e6e1] hover:shadow-lg transition-all cursor-pointer group">
+                    <div className="w-12 h-12 bg-[#faf8f5] rounded-full flex items-center justify-center mr-6 group-hover:bg-[#722f3f] group-hover:text-white transition-all">
+                      <Play size={14} fill="currentColor" />
                     </div>
-                 ))}
-               </div>
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest font-bold text-[#722f3f]">{spot.brand}</span>
+                      <p className="font-serif text-sm leading-tight text-gray-600 mt-1">{spot.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="mt-32 pt-24 border-t border-[#722f3f]/10 text-center space-y-8">
             <p className="text-3xl md:text-5xl font-serif italic text-[#722f3f]">G-Town Wines: Not Merely News—Legend in the Making.</p>
             <p className="text-[10px] uppercase tracking-[0.6em] font-bold text-gray-400">As chronicled by those who define luxury.</p>
-            
+
             <div className="flex flex-col sm:flex-row justify-center items-center gap-12 pt-12">
-               <div className="flex items-center space-x-3 text-[10px] font-bold uppercase tracking-widest text-[#722f3f]">
-                 <Mail size={16} />
-                 <span>press@gtownwines.com</span>
-               </div>
-               <button className="bg-[#722f3f] text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[#5a2532] transition-all shadow-xl">
-                 Subscribe to Elite Updates
-               </button>
+              <div className="flex items-center space-x-3 text-[10px] font-bold uppercase tracking-widest text-[#722f3f]">
+                <Mail size={16} />
+                <span>press@gtownwines.com</span>
+              </div>
+              <button className="bg-[#722f3f] text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[#5a2532] transition-all shadow-xl">
+                Subscribe to Elite Updates
+              </button>
             </div>
           </div>
         </div>
@@ -735,11 +775,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`border border-[#e8e6e1] transition-all duration-500 overflow-hidden ${activeFaq === idx ? 'bg-[#faf8f5] border-[#722f3f] shadow-xl' : 'bg-white hover:border-gray-400'}`}
               >
-                <button 
+                <button
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                   className="w-full text-left px-8 py-8 flex items-center justify-between group"
                 >
@@ -771,18 +811,18 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
           </div>
 
           <div className="mt-20 flex flex-col items-center space-y-6">
-             <div className="p-4 bg-[#faf8f5] rounded-full">
-                <HelpCircle size={32} className="text-[#d4af37] opacity-50" />
-             </div>
-             <p className="text-center text-sm font-lora italic text-gray-400 max-w-md">
-               Inquisitive minds deserve meticulous clarity. Should your specific query remain unaddressed, our Concierge Mastery cadre awaits your instruction.
-             </p>
-             <button 
+            <div className="p-4 bg-[#faf8f5] rounded-full">
+              <HelpCircle size={32} className="text-[#d4af37] opacity-50" />
+            </div>
+            <p className="text-center text-sm font-lora italic text-gray-400 max-w-md">
+              Inquisitive minds deserve meticulous clarity. Should your specific query remain unaddressed, our Concierge Mastery cadre awaits your instruction.
+            </p>
+            <button
               onClick={() => onNavigate('contact')}
               className="text-[#722f3f] text-[10px] uppercase font-bold tracking-[0.6em] border-b border-[#722f3f] pb-1 hover:text-[#d4af37] hover:border-[#d4af37] transition-all"
-             >
-               Explore In-depth Support
-             </button>
+            >
+              Explore In-depth Support
+            </button>
           </div>
         </div>
       </section>
@@ -792,7 +832,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         {/* Luxury Texture Background */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/40 via-transparent to-black/40"></div>
-        
+
         {/* Background Ghost Text */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter">
           Excellence
@@ -804,12 +844,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24 space-y-4">
-             <div className="flex items-center justify-center space-x-3 mb-6">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#d4af37" className="text-[#d4af37]" />)}
-             </div>
-             <h4 className="text-[#d4af37] uppercase tracking-[0.8em] font-bold text-[10px]">THE COLLECTOR'S CIRCLE</h4>
-             <h2 className="text-4xl md:text-6xl font-serif">Echoes of Distinction</h2>
-             <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-8"></div>
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="#d4af37" className="text-[#d4af37]" />)}
+            </div>
+            <h4 className="text-[#d4af37] uppercase tracking-[0.8em] font-bold text-[10px]">THE COLLECTOR'S CIRCLE</h4>
+            <h2 className="text-4xl md:text-6xl font-serif">Echoes of Distinction</h2>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-8"></div>
           </div>
 
           <div className="relative max-w-5xl mx-auto">
@@ -832,13 +872,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
             {/* Premium Controls */}
             <div className="flex justify-center items-center space-x-8 mt-16">
-              <button 
+              <button
                 onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
                 className="p-4 border border-white/10 rounded-full text-white/40 hover:text-[#d4af37] hover:border-[#d4af37] transition-all group"
               >
                 <ChevronLeft size={24} className="group-active:scale-90 transition-transform" />
               </button>
-              
+
               <div className="flex space-x-4">
                 {testimonials.map((_, i) => (
                   <button
@@ -849,7 +889,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 ))}
               </div>
 
-              <button 
+              <button
                 onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
                 className="p-4 border border-white/10 rounded-full text-white/40 hover:text-[#d4af37] hover:border-[#d4af37] transition-all group"
               >
@@ -857,26 +897,26 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </button>
             </div>
           </div>
-          
+
           {/* Trust Indicators */}
           <div className="mt-32 pt-16 border-t border-white/5 flex flex-wrap justify-center gap-x-16 gap-y-8">
-             {[
-               { label: 'GLOBAL VINTAGE RANKINGS', val: 'TOP 1%' },
-               { label: 'AUTHENTICITY RATING', val: '100% SECURE' },
-               { label: 'COLLECTOR SATISFACTION', val: 'PLATINUM GRADE' }
-             ].map((item, i) => (
-               <div key={i} className="text-center space-y-1">
-                  <p className="text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase">{item.label}</p>
-                  <p className="text-xs font-serif italic text-[#d4af37] tracking-widest">{item.val}</p>
-               </div>
-             ))}
+            {[
+              { label: 'GLOBAL VINTAGE RANKINGS', val: 'TOP 1%' },
+              { label: 'AUTHENTICITY RATING', val: '100% SECURE' },
+              { label: 'COLLECTOR SATISFACTION', val: 'PLATINUM GRADE' }
+            ].map((item, i) => (
+              <div key={i} className="text-center space-y-1">
+                <p className="text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase">{item.label}</p>
+                <p className="text-xs font-serif italic text-[#d4af37] tracking-widest">{item.val}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Quick View Modal */}
       {quickViewWine && (
-        <QuickViewModal 
+        <QuickViewModal
           wine={quickViewWine}
           isOpen={!!quickViewWine}
           onClose={() => setQuickViewWine(null)}
@@ -885,7 +925,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             setQuickViewWine(null);
           }}
           onNavigateToProduct={(id) => onNavigate('product', { id })}
-          onToggleWishlist={(wine) => {}} // Placeholder for home
+          onToggleWishlist={(wine) => { }} // Placeholder for home
           isInWishlist={false}
         />
       )}
@@ -894,7 +934,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
       <section className="py-32 bg-[#faf8f5] relative overflow-hidden border-y border-[#e8e6e1]">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#d4af37]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-50"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#722f3f]/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl opacity-50"></div>
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24 space-y-6">
             <h4 className="text-[#d4af37] uppercase tracking-[0.8em] font-bold text-[10px]">WHY G-TOWN WINES</h4>
@@ -905,35 +945,35 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e6e1] border border-[#e8e6e1] shadow-2xl">
             {[
-              { 
-                icon: <ShieldCheck size={32} strokeWidth={1} />, 
-                title: 'Curated Excellence', 
-                desc: 'Every bottle meticulously hand-selected by our Master Sommeliers—rarities chosen for their transcendent legacy and unparalleled distinction.' 
+              {
+                icon: <ShieldCheck size={32} strokeWidth={1} />,
+                title: 'Curated Excellence',
+                desc: 'Every bottle meticulously hand-selected by our Master Sommeliers—rarities chosen for their transcendent legacy and unparalleled distinction.'
               },
-              { 
-                icon: <Truck size={32} strokeWidth={1} />, 
-                title: 'Cellar Direct Delivery', 
-                desc: 'Secure, temperature-controlled global transport—preserving perfection from vault to your private collection.' 
+              {
+                icon: <Truck size={32} strokeWidth={1} />,
+                title: 'Cellar Direct Delivery',
+                desc: 'Secure, temperature-controlled global transport—preserving perfection from vault to your private collection.'
               },
-              { 
-                icon: <Sparkles size={32} strokeWidth={1} />, 
-                title: 'Exclusive Access Privileges', 
-                desc: "Members-only unveilings of limited releases and rare library vintages—acquisitions reserved for the world's most refined palates." 
+              {
+                icon: <Sparkles size={32} strokeWidth={1} />,
+                title: 'Exclusive Access Privileges',
+                desc: "Members-only unveilings of limited releases and rare library vintages—acquisitions reserved for the world's most refined palates."
               },
-              { 
-                icon: <GraduationCap size={32} strokeWidth={1} />, 
-                title: 'Sommelier Scholarship', 
-                desc: 'In-depth tasting monographs and guided virtuoso experiences—elevating connoisseurship to art form.' 
+              {
+                icon: <GraduationCap size={32} strokeWidth={1} />,
+                title: 'Sommelier Scholarship',
+                desc: 'In-depth tasting monographs and guided virtuoso experiences—elevating connoisseurship to art form.'
               },
-              { 
-                icon: <Award size={32} strokeWidth={1} />, 
-                title: 'Uncompromising Provenance', 
-                desc: 'Guaranteed authenticity through flawless, climate-perfected cellar stewardship—legacy preserved for generations.' 
+              {
+                icon: <Award size={32} strokeWidth={1} />,
+                title: 'Uncompromising Provenance',
+                desc: 'Guaranteed authenticity through flawless, climate-perfected cellar stewardship—legacy preserved for generations.'
               },
-              { 
-                icon: <Headphones size={32} strokeWidth={1} />, 
-                title: 'Concierge Mastery', 
-                desc: 'Dedicated sommelier cadre at your command—bespoke curation for the most distinguished cellars worldwide.' 
+              {
+                icon: <Headphones size={32} strokeWidth={1} />,
+                title: 'Concierge Mastery',
+                desc: 'Dedicated sommelier cadre at your command—bespoke curation for the most distinguished cellars worldwide.'
               }
             ].map((item, i) => (
               <div key={i} className="bg-white p-12 space-y-8 group hover:bg-[#faf8f5] transition-all duration-700 relative overflow-hidden">
@@ -950,9 +990,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-20 text-center">
-            <button 
+            <button
               onClick={() => onNavigate('about')}
               className="group flex items-center space-x-6 mx-auto text-[#722f3f] uppercase tracking-[0.4em] text-[10px] font-bold"
             >
@@ -969,11 +1009,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12 text-center">
-             <h2 className="text-4xl font-serif mb-4">Browse by Category</h2>
-             <div className="h-0.5 w-12 bg-[#d4af37] mx-auto"></div>
+            <h2 className="text-4xl font-serif mb-4">Browse by Category</h2>
+            <div className="h-0.5 w-12 bg-[#d4af37] mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[600px]">
-            <div 
+            <div
               className="relative group cursor-pointer overflow-hidden rounded-sm h-full"
               onClick={() => onNavigate('shop', { type: 'Red' })}
             >
@@ -985,7 +1025,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </div>
             </div>
             <div className="grid grid-rows-2 gap-4 h-full">
-              <div 
+              <div
                 className="relative group cursor-pointer overflow-hidden rounded-sm"
                 onClick={() => onNavigate('shop', { type: 'White' })}
               >
@@ -996,7 +1036,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                   <p className="uppercase tracking-widest text-[10px] opacity-80">Refining Elegance</p>
                 </div>
               </div>
-              <div 
+              <div
                 className="relative group cursor-pointer overflow-hidden rounded-sm"
                 onClick={() => onNavigate('shop', { type: 'Sparkling' })}
               >
@@ -1017,7 +1057,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center mb-16">
             <h2 className="text-4xl font-serif">Wine Education</h2>
-            <button 
+            <button
               onClick={() => onNavigate('education')}
               className="text-[#722f3f] text-xs font-bold uppercase tracking-widest border-b-2 border-[#722f3f] pb-1 hover:text-[#5a2532] transition-colors"
             >
@@ -1070,7 +1110,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             "Experience private allocations and member-only benefits."
           </p>
         </div>
-        
+
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { tier: 'Silver', price: '185', bottles: '6', color: 'border-gray-400' },
@@ -1100,14 +1140,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
       <section className="py-32 bg-[#0a0a0a] relative overflow-hidden">
         {/* Decorative background element - UPDATED TO REQUESTED IMAGE */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images5.alphacoders.com/443/443997.jpg" 
-            alt="Vineyard Background" 
+          <img
+            src="https://images5.alphacoders.com/443/443997.jpg"
+            alt="Vineyard Background"
             className="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-[4000ms]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]"></div>
         </div>
-        
+
         {/* Glassmorphism texture and Glow (Preserved for Luxury Feel) */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-30 pointer-events-none z-[1]"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#722f3f]/10 rounded-full blur-[120px] pointer-events-none z-[1]"></div>
@@ -1132,9 +1172,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
             <form className="max-w-md mx-auto space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="relative group">
-                <input 
-                  type="email" 
-                  placeholder="E-mail Address" 
+                <input
+                  type="email"
+                  placeholder="E-mail Address"
                   className="w-full bg-transparent border-b border-white/20 py-4 px-2 outline-none text-white text-center font-lora italic transition-all focus:border-[#d4af37]"
                 />
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-[#d4af37] transition-all duration-700 group-focus-within:w-full"></div>
