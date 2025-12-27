@@ -619,10 +619,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             <div className="pt-24 border-t border-white/5 relative">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#d4af37] rotate-45"></div>
               <p className="text-2xl md:text-3xl font-serif italic text-[#d4af37] tracking-wide">G-Town Wines: Mastery Beyond Measure.</p>
-              <div className="flex items-center justify-center space-x-12 mt-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
-                <span>Authenticity</span>
-                <span>Exclusivity</span>
-                <span>Unrivaled Elegance</span>
+              <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12 mt-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
+                <span>#1 Authenticity</span>
+                <span>#2 Exclusivity</span>
+                <span>#3 Unrivaled Elegance</span>
               </div>
             </div>
           </div>
