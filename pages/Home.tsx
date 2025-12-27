@@ -1117,13 +1117,29 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
       {/* Education Preview */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center mb-16">
+          <div className="flex justify-between items-center mb-10">
             <h2 className="text-4xl font-serif">Wine Education</h2>
             <button
               onClick={() => onNavigate('education')}
-              className="text-[#722f3f] text-xs font-bold uppercase tracking-widest border-b-2 border-[#722f3f] pb-1 hover:text-[#5a2532] transition-colors"
+              className="group relative w-24 h-24 flex items-center justify-center"
+              title="Explore Journal"
             >
-              Explore Journal
+              {/* Circular rotating text */}
+              <svg className="absolute w-full h-full animate-spin" style={{ animationDuration: '20s' }} viewBox="0 0 100 100">
+                <defs>
+                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                </defs>
+                <text className="text-[10px] font-bold uppercase tracking-[0.2em] fill-[#722f3f] group-hover:fill-[#d4af37] transition-colors" letterSpacing="4">
+                  <textPath href="#circlePath" startOffset="0%">
+                    ★ EXPLORE JOURNAL
+                  </textPath>
+                </text>
+              </svg>
+
+              {/* Center icon */}
+              <div className="relative z-10 w-12 h-12 bg-[#722f3f] group-hover:bg-[#5a2532] transition-all rounded-full flex items-center justify-center">
+                <ArrowRight size={18} className="text-white group-hover:scale-110 transition-transform" />
+              </div>
             </button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
