@@ -800,7 +800,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                     </p>
                     <div className="mt-8 pt-8 border-t border-[#722f3f]/5">
                       <button className="text-[9px] uppercase font-bold tracking-[0.4em] text-[#722f3f] flex items-center group/btn">
-                        <span>Consult our curator</span>
+                        <span>Consult curator</span>
                         <ArrowRight size={12} className="ml-3 group-hover/btn:translate-x-2 transition-transform" />
                       </button>
                     </div>
@@ -991,13 +991,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             ))}
           </div>
 
-          <div className="mt-20 text-center">
+          <div className="mt-20 flex flex-col items-center space-y-6 md:space-y-0 md:flex-row md:justify-center md:space-x-6">
             <button
               onClick={() => onNavigate('about')}
-              className="group flex items-center space-x-6 mx-auto text-[#722f3f] uppercase tracking-[0.4em] text-[10px] font-bold"
+              className="group flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 text-[#722f3f] uppercase tracking-[0.4em] text-[10px] font-bold"
             >
-              <span>Explore Our Full Heritage & Service standards</span>
-              <div className="w-12 h-12 border border-[#722f3f]/30 rounded-full flex items-center justify-center group-hover:bg-[#722f3f] group-hover:text-white group-hover:border-[#722f3f] transition-all duration-500">
+              <span className="order-1 md:order-none">Explore Our Full Heritage & Service standards</span>
+              <div className="order-2 md:order-none w-12 h-12 min-h-12 min-w-12 border border-[#722f3f]/30 rounded-full flex items-center justify-center group-hover:bg-[#722f3f] group-hover:text-white group-hover:border-[#722f3f] transition-all duration-500">
                 <ArrowRight size={18} />
               </div>
             </button>
