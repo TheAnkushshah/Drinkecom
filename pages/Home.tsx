@@ -730,10 +730,10 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 {[
                   { brand: "NDTV LUXE", title: "CEO Interview: \"Redefining Spirits for the Modern Connoisseur\"" },
                   { brand: "ET NOW", title: "\"Why G-Town Commands Premium Loyalty\" Live Analysis" },
-                  { brand: "INSTAGRAM", title: "Live with Sommelier Extraordinaire - 50K+ Views" }
+                  { brand: "INSTAGRAM", title: "Live with Tech Backed Sommelier Extraordinaire - 500K+ Views" }
                 ].map((spot, i) => (
                   <div key={i} className="flex items-center p-6 bg-white border border-[#e8e6e1] hover:shadow-lg transition-all cursor-pointer group">
-                    <div className="w-12 h-12 bg-[#faf8f5] rounded-full flex items-center justify-center mr-6 group-hover:bg-[#722f3f] group-hover:text-white transition-all">
+                    <div className="w-12 h-12 min-w-12 min-h-12 aspect-square bg-[#faf8f5] rounded-full flex items-center justify-center mr-6 group-hover:bg-[#722f3f] group-hover:text-white transition-all">
                       <Play size={14} fill="currentColor" />
                     </div>
                     <div>
