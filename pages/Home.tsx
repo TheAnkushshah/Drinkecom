@@ -150,7 +150,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         <div className="relative max-w-7xl mx-auto px-6 w-full z-10 text-[#faf8f5]">
           <div className="max-w-3xl space-y-6 md:space-y-8">
             <h4 className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-[0.60rem] md:text-xs animate-in slide-in-from-top-4 duration-700">Since 2005</h4>
-            <h1 className="text-4xl md:text-8xl font-serif leading-[1.1] tracking-tight animate-in slide-in-from-left-4 duration-1000 delay-100">
+            <h1 className="text-[2.5rem] md:text-8xl font-serif leading-[1.1] tracking-tight animate-in slide-in-from-left-4 duration-1000 delay-100">
               Discover Premium <br />
               <span className="italic">Wines from Top #1 G-Town</span>
             </h1>
