@@ -411,7 +411,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                 Amid life's crescendo, the clarion call to curate brilliance resounds. No revelry achieves transcendence without impeccable provenance. For the visionary host who orchestrates with precision—respectful, flawless, eternal—authenticity is paramount.
               </p>
               <div className="space-y-4">
-                 <h4 className="text-2xl font-serif text-[#d4af37]">G-Town Wines NCR: The Sole Guarantee of Grandeur.</h4>
+                 <h4 className="text-2xl font-serif text-[#d4af37]">G-Town Wines: The Sole Guarantee of Grandeur.</h4>
                  <p className="text-sm uppercase tracking-[0.3em] font-bold text-gray-500 italic">Where wholesale whispers meet world-class wonders. Your gateway to the pinnacle wine lifestyle experience.</p>
               </div>
             </div>
@@ -427,12 +427,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
           <div className="mt-24 text-center space-y-4">
             <p className="text-3xl font-serif italic text-[#faf8f5]">G-Town Wines: Where Originality Commands the Extraordinary.</p>
-            <div className="flex items-center justify-center space-x-8 text-[10px] uppercase tracking-[0.6em] font-bold text-[#d4af37] mt-8">
-              <span>Authenticity</span>
-              <span className="w-1.5 h-1.5 bg-white/20 rounded-full"></span>
-              <span>Exclusivity</span>
-              <span className="w-1.5 h-1.5 bg-white/20 rounded-full"></span>
-              <span>Unrivaled Elegance</span>
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-[10px] uppercase tracking-[0.6em] font-bold text-[#d4af37] mt-8">
+              <span>#1 Authenticity</span>
+              <span className="hidden md:block w-1.5 h-1.5 bg-white/20 rounded-full"></span>
+              <span>#2 Exclusivity</span>
+              <span className="hidden md:block w-1.5 h-1.5 bg-white/20 rounded-full"></span>
+              <span>#3 Unrivaled Elegance</span>
             </div>
           </div>
         </div>
