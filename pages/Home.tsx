@@ -270,7 +270,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-2xl font-serif text-center lg:text-left mb-8">Why G-TOWN WINES Redefines Luxury</h3>
+              <h3 className="text-2xl font-serif text-center lg:text-left mb-8">How ? G-TOWN WINES Redefines Luxury</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   { 
@@ -304,7 +304,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               
               <div className="pt-8 text-center lg:text-left">
                 <p className="text-lg font-serif italic text-[#722f3f]">
-                  G-TOWN WINES NCR: Where Authenticity Meets Opulence.
+                  G-TOWN WINES: Where Authenticity Meets Opulence.
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-400 mt-2">
                   Your Legacy of Extraordinary Moments Begins Here.
