@@ -1012,39 +1012,101 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             <h2 className="text-4xl font-serif mb-4">Browse by Category</h2>
             <div className="h-0.5 w-12 bg-[#d4af37] mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 h-auto md:h-[600px]">
+            {/* Red Wines - Full width on mobile, left on desktop */}
             <div
-              className="relative group cursor-pointer overflow-hidden rounded-sm h-full"
+              className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[320px] md:h-full"
               onClick={() => onNavigate('shop', { type: 'Red' })}
             >
-              <img src="/category1.jpg" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Red Wines" />
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-              <div className="absolute bottom-10 left-10 text-white">
-                <h3 className="text-4xl font-serif mb-2">The Bold Reds</h3>
-                <p className="uppercase tracking-widest text-xs opacity-80">Explore Full-Bodied Vintages</p>
-              </div>
-            </div>
-            <div className="grid grid-rows-2 gap-4 h-full">
-              <div
-                className="relative group cursor-pointer overflow-hidden rounded-sm"
-                onClick={() => onNavigate('shop', { type: 'White' })}
-              >
-                <img src="/category2.png" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="White Wines" />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl font-serif mb-1">Crisp Whites</h3>
-                  <p className="uppercase tracking-widest text-[10px] opacity-80">Refining Elegance</p>
+              <img 
+                src="/category1.jpg" 
+                loading="lazy" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                alt="Red Wines" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
+              
+              {/* Luxury accent border */}
+              <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
+              
+              {/* Content with enhanced mobile styling */}
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
+                <div className="space-y-3 md:space-y-2">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="w-8 h-0.5 bg-[#d4af37]"></div>
+                    <span className="text-[#d4af37] text-[9px] uppercase tracking-[0.3em] font-bold">Premium Selection</span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-serif text-white leading-tight">The Bold Reds</h3>
+                  <p className="uppercase tracking-widest text-[10px] md:text-xs opacity-90 text-gray-200 font-bold">Explore Full-Bodied Vintages</p>
+                </div>
+                
+                {/* CTA Button - visible on mobile, hidden on desktop */}
+                <div className="mt-4 md:mt-0 flex items-center space-x-2 text-[#d4af37] text-[9px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Discover Collection</span>
+                  <ArrowRight size={12} />
                 </div>
               </div>
+            </div>
+
+            {/* Right column - Sparkling & White wines */}
+            <div className="grid grid-rows-2 gap-3 md:gap-4 h-auto md:h-full">
+              {/* White Wines */}
               <div
-                className="relative group cursor-pointer overflow-hidden rounded-sm"
+                className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[280px] md:h-full"
+                onClick={() => onNavigate('shop', { type: 'White' })}
+              >
+                <img 
+                  src="/category2.png" 
+                  loading="lazy" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  alt="White Wines" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
+                <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
+                
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                  <div className="space-y-2 md:space-y-1">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-6 h-0.5 bg-[#d4af37]"></div>
+                      <span className="text-[#d4af37] text-[8px] uppercase tracking-[0.3em] font-bold">Refined</span>
+                    </div>
+                    <h3 className="text-2xl md:text-2xl font-serif text-white leading-tight">Crisp Whites</h3>
+                    <p className="uppercase tracking-widest text-[9px] opacity-90 text-gray-200 font-bold">Refining Elegance</p>
+                  </div>
+                  <div className="mt-3 md:mt-0 flex items-center space-x-2 text-[#d4af37] text-[8px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>View</span>
+                    <ArrowRight size={10} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Sparkling */}
+              <div
+                className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[280px] md:h-full"
                 onClick={() => onNavigate('shop', { type: 'Sparkling' })}
               >
-                <img src="/category3.png" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sparkling" />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-2xl font-serif mb-1">Fine Bubbles</h3>
-                  <p className="uppercase tracking-widest text-[10px] opacity-80">Celebratory Classics</p>
+                <img 
+                  src="/category3.png" 
+                  loading="lazy" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  alt="Sparkling" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
+                <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
+                
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                  <div className="space-y-2 md:space-y-1">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-6 h-0.5 bg-[#d4af37]"></div>
+                      <span className="text-[#d4af37] text-[8px] uppercase tracking-[0.3em] font-bold">Exclusive</span>
+                    </div>
+                    <h3 className="text-2xl md:text-2xl font-serif text-white leading-tight">Fine Bubbles</h3>
+                    <p className="uppercase tracking-widest text-[9px] opacity-90 text-gray-200 font-bold">Celebratory Classics</p>
+                  </div>
+                  <div className="mt-3 md:mt-0 flex items-center space-x-2 text-[#d4af37] text-[8px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Explore</span>
+                    <ArrowRight size={10} />
+                  </div>
                 </div>
               </div>
             </div>
