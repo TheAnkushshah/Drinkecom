@@ -12,7 +12,7 @@ const AgeVerification: React.FC<AgeVerificationProps> = ({ onVerify }) => {
       <div className="relative max-w-xl w-full bg-white/8 border border-white/10 backdrop-blur-2xl rounded-md shadow-[0_40px_120px_-40px_rgba(0,0,0,0.8)] p-10 text-center text-white space-y-6">
         <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-white/10 border border-white/20 uppercase tracking-[0.4em] text-[10px] font-bold">
           <ShieldCheck size={14} className="text-[#d4af37]" />
-          <span>Responsible Access</span>
+          <span>Verified Access</span>
         </div>
         <div className="space-y-3">
           <h2 className="text-4xl font-serif text-white">G-Town Wines</h2>
