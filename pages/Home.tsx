@@ -148,13 +148,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
         
         <div className="relative max-w-7xl mx-auto px-6 w-full z-10 text-[#faf8f5]">
-          <div className="max-w-3xl space-y-8">
-            <h4 className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-xs animate-in slide-in-from-top-4 duration-700">Since 2005</h4>
-            <h1 className="text-5xl md:text-8xl font-serif leading-[1.1] tracking-tight animate-in slide-in-from-left-4 duration-1000 delay-100">
+          <div className="max-w-3xl space-y-6 md:space-y-8">
+            <h4 className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-[0.60rem] md:text-xs animate-in slide-in-from-top-4 duration-700">Since 2005</h4>
+            <h1 className="text-4xl md:text-8xl font-serif leading-[1.1] tracking-tight animate-in slide-in-from-left-4 duration-1000 delay-100">
               Discover Premium <br />
               <span className="italic">Wines from Top #1 G-Town</span>
             </h1>
-            <p className="text-lg md:text-xl font-lora opacity-90 leading-relaxed max-w-xl italic animate-in slide-in-from-bottom-4 duration-1000 delay-300">
+            <p className="text-md md:text-xl font-lora opacity-90 leading-relaxed max-w-xl italic animate-in slide-in-from-bottom-4 duration-1000 delay-300">
               Crafted with Passion, Delivered with Excellence. Every bottle tells the story of our valley's soul.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 pt-4 animate-in fade-in duration-1000 delay-500">
