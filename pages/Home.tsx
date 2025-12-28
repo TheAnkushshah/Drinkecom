@@ -1286,7 +1286,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             {/* Mobile Circular Categories */}
             <div className="grid grid-cols-2 gap-4 py-4">
               {[
-                { title: 'Rosé', img: 'https://i.pinimg.com/736x/7c/10/31/7c1031c10d15a2b9ca7dc5fd7b7461e6.jpg' },
+                { title: 'Rosé', img: 'https://images.unsplash.com/photo-1547595628-c61a29f496f0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2luZXxlbnwwfHwwfHx8MA%3D%3D' },
                 { title: 'Dessert', img: 'https://images5.alphacoders.com/443/443997.jpg' }
               ].map((cat, idx) => (
                 <div key={idx} className="relative group cursor-pointer" onClick={() => onNavigate('shop')}>

@@ -157,15 +157,15 @@ const Stores: React.FC = () => {
 
         <div className="relative z-10 text-center space-y-8 px-6 max-w-4xl h-full flex flex-col items-center justify-center">
            <div className="space-y-4">
-             <h1 className="text-6xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000 drop-shadow-2xl">
+             <h1 className="text-4xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000 drop-shadow-2xl">
                Locate G-Town
              </h1>
              <div className="h-px w-40 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
            </div>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl font-lora italic text-white/85 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-md md:text-xl font-lora italic text-white/85 leading-relaxed">
             Discover NCR's most sophisticated sanctuaries for premium wines and spirits. Over 450 destinations of unrivaled prestige.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 pt-4">
+          <div className="hidden md:flex flex-wrap justify-center gap-3 pt-4">
             {['Flagship Sanctuaries', 'Women-First Lounges', 'Concierge & Valet', 'Curated Tastings'].map(tag => (
               <span key={tag} className="px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-bold text-white/80 bg-white/10 border border-white/15 rounded-full backdrop-blur-md">
                 {tag}
@@ -192,7 +192,7 @@ const Stores: React.FC = () => {
                   <Filter size={16} className="text-[#d4af37]" />
                   <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#d4af37]"></div>
                 </div>
-                <h3 className="text-3xl font-serif italic text-[#2a2a2a] mb-2">Refine Your Destination</h3>
+                <h3 className="text-[1.3rem] md:text-3xl font-serif italic text-[#2a2a2a] mb-2">Refine Your Destination</h3>
                 <p className="text-xs uppercase tracking-[0.3em] font-bold text-gray-400">Precision Search Tools</p>
               </div>
 
