@@ -317,10 +317,22 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
       {/* LUXURY LEGACY MILESTONES SECTION */}
       <section className="py-24 bg-[#2a2a2a] text-[#faf8f5] relative overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/Video4.mp4" type="video/mp4" />
+        </video>
+
         {/* Subtle Background Elements */}
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         </div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
             {[
@@ -348,7 +360,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
       {/* NEW GRANDEUR & WHOLESALE PRESTIGE MANIFESTO SECTION */}
       <section className="py-32 bg-[#111111] text-[#faf8f5] relative overflow-hidden">
         {/* Decorative background "Ghost Text" */}
-        <div className="absolute -top-20 -left-20 text-[20vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none">
+        <div className="md:block absolute top-[5rem] left-[3rem] md:-top-20 text-[15vw] md:text-[20vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none">
           G-TOWN
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -401,29 +413,49 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-y border-white/10 py-24">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-24">
+
+            {/* Top Luxury Divider */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+
+            {/* Bottom Luxury Divider */}
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+
             <div className="space-y-12">
               <div className="space-y-4">
-                <h4 className="text-[#d4af37] text-xs uppercase tracking-[0.5em] font-bold">Elevate Every Occasion to Mastery</h4>
-                <h3 className="text-5xl font-serif italic">Every Celebration Demands Distinction</h3>
+                <h4 className="text-[#d4af37] text-xs uppercase tracking-[0.5em] font-bold">
+                  Elevate Every Occasion to Mastery
+                </h4>
+                <h3 className="text-5xl font-serif italic">
+                  Every Celebration Demands Distinction
+                </h3>
               </div>
+
               <p className="text-lg font-lora italic text-gray-300 leading-relaxed">
-                Amid life's crescendo, the clarion call to curate brilliance resounds. No revelry achieves transcendence without impeccable provenance. For the visionary host who orchestrates with precision—respectful, flawless, eternal—authenticity is paramount.
+                Amid life's crescendo, the clarion call to curate brilliance resounds.
+                No revelry achieves transcendence without impeccable provenance. For the visionary host who orchestrates with precision—respectful, flawless, eternal—authenticity is paramount.
               </p>
+
               <div className="space-y-4">
-                <h4 className="text-2xl font-serif text-[#d4af37]">G-Town Wines: The Sole Guarantee of Grandeur.</h4>
-                <p className="text-sm uppercase tracking-[0.3em] font-bold text-gray-500 italic">Where wholesale whispers meet world-class wonders. Your gateway to the pinnacle wine lifestyle experience.</p>
+                <h4 className="text-2xl font-serif text-[#d4af37]">
+                  G-Town Wines: The Sole Guarantee of Grandeur.
+                </h4>
+                <p className="text-sm uppercase tracking-[0.3em] font-bold text-gray-500 italic">
+                  Where wholesale whispers meet world-class wonders.
+                </p>
               </div>
             </div>
+
             <div className="relative aspect-square">
-              <div className="absolute inset-0 border-2 border-[#d4af37]/20 transform rotate-3 translate-x-4 translate-y-4"></div>
+              <div className="absolute inset-0 border border-[#d4af37]/30 transform rotate-2 translate-x-4 translate-y-4"></div>
               <img
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200"
                 alt="Luxury Collection"
-                className="w-full h-full object-cover relative z-10 filter brightness-75 contrast-125"
+                className="w-full h-full object-cover relative z-10 brightness-75 contrast-125"
               />
             </div>
           </div>
+
 
           <div className="mt-24 text-center space-y-4">
             <p className="text-3xl font-serif italic text-[#faf8f5]">G-Town Wines: Where Originality Commands the Extraordinary.</p>
@@ -526,10 +558,21 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
           </div>
 
-          <div className="mt-24 pt-16 border-t border-white/10 text-center space-y-6">
-            <h3 className="text-2xl font-serif italic text-white">Elevate Your Stock to Legendary Status.</h3>
-            <p className="text-[10px] uppercase tracking-[0.8em] font-bold text-[#d4af37]">Where Premium Meets Monumental Scale.</p>
+          <div className="relative mt-24 pt-20 text-center space-y-6">
+
+            {/* Luxury Divider */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px 
+                  bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
+
+            <h3 className="text-2xl font-serif italic text-white">
+              Elevate Your Stock to Legendary Status.
+            </h3>
+
+            <p className="text-[10px] uppercase tracking-[0.8em] font-bold text-[#d4af37]">
+              Where Premium Meets Monumental Scale.
+            </p>
           </div>
+
         </div>
       </section>
 
@@ -616,15 +659,29 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
               </button>
             </div>
 
-            <div className="pt-24 border-t border-white/5 relative">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#d4af37] rotate-45"></div>
-              <p className="text-2xl md:text-3xl font-serif italic text-[#d4af37] tracking-wide">G-Town Wines: Mastery Beyond Measure.</p>
-              <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12 mt-12 text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
+            <div className="relative pt-24 text-center">
+
+              {/* Luxury Divider */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-px 
+                  bg-gradient-to-r from-transparent via-[#d4af37]/35 to-transparent"></div>
+
+              {/* Floating Diamond */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                w-3 h-3 bg-[#d4af37] rotate-45 shadow-[0_0_12px_rgba(212,175,55,0.35)]"></div>
+
+              <p className="text-2xl md:text-3xl font-serif italic text-[#d4af37] tracking-wide">
+                G-Town Wines: Mastery Beyond Measure.
+              </p>
+
+              <div className="flex flex-col md:flex-row items-center justify-center 
+                  space-y-4 md:space-y-0 md:space-x-12 mt-12 
+                  text-[10px] uppercase tracking-[0.5em] font-bold text-gray-600">
                 <span>#1 Authenticity</span>
                 <span>#2 Exclusivity</span>
                 <span>#3 Unrivaled Elegance</span>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -699,7 +756,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 border-t border-gray-200 pt-24">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-20 pt-28">
+
+            {/* Editorial Divider */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-px 
+                  bg-gradient-to-r from-transparent via-black/15 to-transparent"></div>
+
             <div className="space-y-12">
               <div className="flex items-center space-x-4">
                 <FileText size={24} className="text-[#d4af37]" />
@@ -746,20 +808,33 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             </div>
           </div>
 
-          <div className="mt-32 pt-24 border-t border-[#722f3f]/10 text-center space-y-8">
-            <p className="text-3xl md:text-5xl font-serif italic text-[#722f3f]">G-Town Wines: Not Merely News—Legend in the Making.</p>
-            <p className="text-[10px] uppercase tracking-[0.6em] font-bold text-gray-400">As chronicled by those who define luxury.</p>
+          <div className="relative mt-32 pt-20 text-center space-y-8">
+
+            {/* Editorial Divider */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px 
+                  bg-gradient-to-r from-transparent via-black/15 to-transparent"></div>
+
+            <p className="text-3xl md:text-5xl font-serif italic text-[#722f3f]">
+              G-Town Wines: Not Merely News—Legend in the Making.
+            </p>
+
+            <p className="text-[10px] uppercase tracking-[0.6em] font-bold text-gray-400">
+              As chronicled by those who define luxury.
+            </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-12 pt-12">
               <div className="flex items-center space-x-3 text-[10px] font-bold uppercase tracking-widest text-[#722f3f]">
                 <Mail size={16} />
                 <span>press@gtownwines.com</span>
               </div>
-              <button className="bg-[#722f3f] text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.3em] hover:bg-[#5a2532] transition-all shadow-xl">
+
+              <button className="bg-[#722f3f] text-white px-8 py-4 text-[9px] font-bold uppercase tracking-[0.3em] 
+                       hover:bg-[#5a2532] transition-all shadow-xl">
                 Subscribe to Elite Updates
               </button>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -834,8 +909,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/40 via-transparent to-black/40"></div>
 
         {/* Background Ghost Text */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter">
-          Excellence
+        <div className="absolute top-[55rem] left-[11rem] md:top-1/2 md:left-[58rem] -translate-x-1/2 -translate-y-1/2 text-[20vw] font-serif font-bold text-white/[0.02] pointer-events-none select-none whitespace-nowrap uppercase tracking-tighter">
+          Luxury
         </div>
 
         {/* Framing Elements */}
@@ -899,18 +974,28 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-32 pt-16 border-t border-white/5 flex flex-wrap justify-center gap-x-16 gap-y-8">
+          <div className="relative mt-32 pt-16 flex flex-wrap justify-center gap-x-16 gap-y-8">
+
+            {/* Cinematic Divider */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[55%] h-px
+                  bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
             {[
               { label: 'GLOBAL VINTAGE RANKINGS', val: 'TOP 1%' },
               { label: 'AUTHENTICITY RATING', val: '100% SECURE' },
               { label: 'COLLECTOR SATISFACTION', val: 'PLATINUM GRADE' }
             ].map((item, i) => (
               <div key={i} className="text-center space-y-1">
-                <p className="text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase">{item.label}</p>
-                <p className="text-xs font-serif italic text-[#d4af37] tracking-widest">{item.val}</p>
+                <p className="text-[8px] font-bold tracking-[0.4em] text-gray-600 uppercase">
+                  {item.label}
+                </p>
+                <p className="text-xs font-serif italic text-[#d4af37] tracking-widest">
+                  {item.val}
+                </p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -1012,24 +1097,22 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             <h2 className="text-4xl font-serif mb-4">Browse by Category</h2>
             <div className="h-0.5 w-12 bg-[#d4af37] mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 h-auto md:h-[600px]">
-            {/* Red Wines - Full width on mobile, left on desktop */}
+
+          {/* Desktop Layout - Original Grid */}
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 h-auto md:h-[650px]">
+            {/* Red Wines - Full width on desktop left */}
             <div
-              className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[320px] md:h-full"
+              className="relative group cursor-pointer overflow-hidden h-[320px] md:h-full"
               onClick={() => onNavigate('shop', { type: 'Red' })}
             >
-              <img 
-                src="/category1.jpg" 
-                loading="lazy" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                alt="Red Wines" 
+              <img
+                src="/category1.jpg"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Red Wines"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
-              
-              {/* Luxury accent border */}
               <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
-              
-              {/* Content with enhanced mobile styling */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
                 <div className="space-y-3 md:space-y-2">
                   <div className="flex items-center space-x-3 mb-2">
@@ -1039,8 +1122,6 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                   <h3 className="text-3xl md:text-4xl font-serif text-white leading-tight">The Bold Reds</h3>
                   <p className="uppercase tracking-widest text-[10px] md:text-xs opacity-90 text-gray-200 font-bold">Explore Full-Bodied Vintages</p>
                 </div>
-                
-                {/* CTA Button - visible on mobile, hidden on desktop */}
                 <div className="mt-4 md:mt-0 flex items-center space-x-2 text-[#d4af37] text-[9px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Discover Collection</span>
                   <ArrowRight size={12} />
@@ -1052,18 +1133,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             <div className="grid grid-rows-2 gap-3 md:gap-4 h-auto md:h-full">
               {/* White Wines */}
               <div
-                className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[280px] md:h-full"
+                className="relative group cursor-pointer overflow-hidden h-[280px] md:h-full"
                 onClick={() => onNavigate('shop', { type: 'White' })}
               >
-                <img 
-                  src="/category2.png" 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  alt="White Wines" 
+                <img
+                  src="/category2.png"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="White Wines"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
                 <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
-                
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                   <div className="space-y-2 md:space-y-1">
                     <div className="flex items-center space-x-2 mb-2">
@@ -1082,18 +1162,17 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
 
               {/* Sparkling */}
               <div
-                className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-sm h-[280px] md:h-full"
+                className="relative group cursor-pointer overflow-hidden h-[280px] md:h-full"
                 onClick={() => onNavigate('shop', { type: 'Sparkling' })}
               >
-                <img 
-                  src="/category3.png" 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  alt="Sparkling" 
+                <img
+                  src="/category3.png"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="Sparkling"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
                 <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
-                
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                   <div className="space-y-2 md:space-y-1">
                     <div className="flex items-center space-x-2 mb-2">
@@ -1107,6 +1186,151 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
                     <span>Explore</span>
                     <ArrowRight size={10} />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Layout - New Design */}
+          <div className="md:hidden space-y-4">
+            {/* Top Full Width - Red Wines - SAME HEIGHT AS BOTTOM */}
+            <div
+              className="relative group cursor-pointer overflow-hidden h-[360px]"
+              onClick={() => onNavigate('shop', { type: 'Red' })}
+            >
+              <img
+                src="/category1.jpg"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Red Wines"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/70 transition-all duration-500" />
+              <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-6 h-0.5 bg-[#d4af37]"></div>
+                    <span className="text-[#d4af37] text-[8px] uppercase tracking-[0.3em] font-bold">Premium Selection</span>
+                  </div>
+                  <h3 className="text-3xl font-serif text-white leading-tight">The Bold Reds</h3>
+                  <p className="uppercase tracking-widest text-[9px] opacity-90 text-gray-200 font-bold">Full-Bodied Vintages</p>
+                </div>
+                <div className="mt-2 flex items-center space-x-2 text-[#d4af37] text-[8px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>Discover</span>
+                  <ArrowRight size={10} />
+                </div>
+              </div>
+            </div>
+
+            {/* Middle - Two Rectangular Cards (Matched Sizes) */}
+            <div className="flex gap-4">
+              {/* White Wines */}
+              <div
+                className="flex-1 relative group cursor-pointer overflow-hidden h-[280px]"
+                onClick={() => onNavigate('shop', { type: 'White' })}
+              >
+                <img
+                  src="/category2.png"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="White Wines"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 group-hover:from-black/40 transition-all duration-500" />
+                <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-4 h-0.5 bg-[#d4af37]"></div>
+                      <span className="text-[#d4af37] text-[7px] uppercase tracking-[0.2em] font-bold">Refined</span>
+                    </div>
+                    <h4 className="text-lg font-serif text-white">Crisp Whites</h4>
+                    <p className="text-[8px] uppercase tracking-[0.2em] text-gray-200 font-bold">Refined Elegance</p>
+                  </div>
+                  <div className="mt-2 flex items-center space-x-2 text-[#d4af37] text-[7px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>View</span>
+                    <ArrowRight size={8} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Sparkling */}
+              <div
+                className="flex-1 relative group cursor-pointer overflow-hidden h-[280px]"
+                onClick={() => onNavigate('shop', { type: 'Sparkling' })}
+              >
+                <img
+                  src="/category3.png"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  alt="Sparkling"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 group-hover:from-black/40 transition-all duration-500" />
+                <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500" />
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-4 h-0.5 bg-[#d4af37]"></div>
+                      <span className="text-[#d4af37] text-[7px] uppercase tracking-[0.2em] font-bold">Exclusive</span>
+                    </div>
+                    <h4 className="text-lg font-serif text-white">Fine Bubbles</h4>
+                    <p className="text-[8px] uppercase tracking-[0.2em] text-gray-200 font-bold">Celebratory Classics</p>
+                  </div>
+                  <div className="mt-2 flex items-center space-x-2 text-[#d4af37] text-[7px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Explore</span>
+                    <ArrowRight size={8} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Circular Categories */}
+            <div className="grid grid-cols-2 gap-4 py-4">
+              {[
+                { title: 'Rosé', img: 'https://i.pinimg.com/736x/7c/10/31/7c1031c10d15a2b9ca7dc5fd7b7461e6.jpg' },
+                { title: 'Dessert', img: 'https://images5.alphacoders.com/443/443997.jpg' }
+              ].map((cat, idx) => (
+                <div key={idx} className="relative group cursor-pointer" onClick={() => onNavigate('shop')}>
+                  <div className="relative w-full aspect-square overflow-hidden rounded-full">
+                    <img
+                      src={cat.img}
+                      alt={cat.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 rounded-full border-2 border-[#d4af37]/30 group-hover:border-[#d4af37] transition-all"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 p-4">
+                      <WineIcon size={24} className="text-[#d4af37] group-hover:scale-110 transition-transform" strokeWidth={1} />
+                      <h4 className="text-xs font-serif text-white text-center group-hover:text-[#d4af37] transition-colors">{cat.title}</h4>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Full Width - SAME HEIGHT AS TOP */}
+            <div
+              className="relative group cursor-pointer overflow-hidden h-[360px]"
+              onClick={() => onNavigate('shop')}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                alt="Explore All"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500" />
+              <div className="absolute inset-0 border border-[#d4af37]/0 group-hover:border-[#d4af37]/30 transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-6 h-0.5 bg-[#d4af37]"></div>
+                    <span className="text-[#d4af37] text-[8px] uppercase tracking-[0.3em] font-bold">Complete Collection</span>
+                  </div>
+                  <h3 className="text-2xl font-serif text-white leading-tight">Explore All Categories</h3>
+                  <p className="uppercase tracking-widest text-[9px] opacity-90 text-gray-200 font-bold">Discover Your Next Favorite</p>
+                </div>
+                <div className="mt-2 flex items-center space-x-2 text-[#d4af37] text-[8px] font-bold uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span>View All</span>
+                  <ArrowRight size={10} />
                 </div>
               </div>
             </div>
@@ -1195,13 +1419,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, onAddToCart }) => {
             { tier: 'Gold', price: '350', bottles: '12', color: 'border-[#d4af37]' },
             { tier: 'Platinum', price: '650', bottles: '24', color: 'border-white' }
           ].map((item) => (
-            <div key={item.tier} className={`bg-white/5 backdrop-blur-xl border ${item.color} p-12 rounded-sm space-y-8 hover:bg-white/10 transition-all cursor-pointer group`}>
+            <div key={item.tier} className={`bg-white/5 backdrop-blur-xl border ${item.color} p-8 md:p-12 rounded-sm space-y-8 hover:bg-white/10 transition-all cursor-pointer group`}>
               <h3 className="text-3xl font-serif text-[#d4af37] group-hover:scale-110 transition-transform">{item.tier}</h3>
               <div className="space-y-2">
                 <p className="text-lg font-lora italic opacity-80">{item.bottles} Bottles / Semester</p>
                 <p className="text-[10px] uppercase tracking-widest font-bold">Starting at ${item.price}</p>
               </div>
-              <ul className="text-[10px] uppercase tracking-[0.2em] space-y-4 font-bold border-t border-white/10 pt-8">
+              <ul className="text-[10px] uppercase tracking-[0.2em] space-y-4 font-bold border-t border-white/10 pt-8 -mx-8 md:-mx-12 px-8 md:px-12">
                 <li className="flex items-center"><Award size={14} className="mr-3 text-[#d4af37]" /> 15% Collection Discount</li>
                 <li className="flex items-center"><Award size={14} className="mr-3 text-[#d4af37]" /> Complimentary Shipping</li>
                 <li className="flex items-center"><Award size={14} className="mr-3 text-[#d4af37]" /> Library Access</li>
