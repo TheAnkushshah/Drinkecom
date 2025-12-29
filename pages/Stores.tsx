@@ -346,12 +346,12 @@ const Stores: React.FC = () => {
                       <Maximize size={18} />
                       <span className="text-[10px] uppercase font-bold tracking-widest">Monumental Scale</span>
                     </div>
-                    <p className="text-xs text-gray-400 font-lora italic leading-relaxed">The Global selection across 35,000 square feet.</p>
+                    <p className="text-xs text-gray-400 font-lora italic leading-relaxed">Global selection across 35,000 square feet luxury.</p>
                   </div>
                 </div>
-                <button className="bg-[#722f3f] text-white px-10 py-5 uppercase tracking-[0.4em] text-[10px] font-bold hover:bg-[#5a2532] transition-all flex items-center space-x-4 shadow-xl group">
-                    <span className="hidden sm:inline">Explore Flagship Details</span>
-                    <span className="sm:hidden">Flagship Details</span>
+                <button className="bg-[#722f3f] text-white px-6 sm:px-10 py-5 uppercase tracking-[0.4em] text-[10px] font-bold hover:bg-[#5a2532] transition-all flex items-center justify-center sm:justify-start space-x-4 shadow-xl group w-full sm:w-auto">
+                  <span className="hidden sm:inline">Explore Flagship Details</span>
+                  <span className="sm:hidden">Chk Flagship Details</span>
                   <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
                 </button>
               </div>
