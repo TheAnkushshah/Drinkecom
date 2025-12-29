@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, cartCount, wishlistCount })
         <div className="md:hidden bg-[#faf8f5] border-t border-[#e8e6e1] absolute top-20 left-0 right-0 py-8 px-6 space-y-6 flex flex-col items-center shadow-2xl animate-in slide-in-from-top duration-300">
           <button onClick={() => { onNavigate('shop'); setIsMenuOpen(false); }} className="text-xl font-serif">The Collection</button>
           <button onClick={() => { onNavigate('stores'); setIsMenuOpen(false); }} className="text-xl font-serif">Locate Stores</button>
-          <button onClick={() => { onNavigate('club'); setIsMenuOpen(false); }} className="text-xl font-serif">Wine Club</button>
+          <button onClick={() => { onNavigate('club'); setIsMenuOpen(false); }} className="text-xl font-serif">Club</button>
           <button onClick={() => { onNavigate('tastings'); setIsMenuOpen(false); }} className="text-xl font-serif">Tastings</button>
           <button onClick={() => { onNavigate('education'); setIsMenuOpen(false); }} className="text-xl font-serif">Education</button>
           <button onClick={() => { onNavigate('about'); setIsMenuOpen(false); }} className="text-xl font-serif">Our Story</button>

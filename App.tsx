@@ -19,7 +19,7 @@ import Tastings from './pages/Tastings';
 import Stores from './pages/Stores';
 import CSR from './pages/CSR'; // NEW IMPORT
 import { Wine, CartItem } from './types';
-import { Check, X as XIcon, Crown, Award, Star, Gem, CheckCircle2 } from 'lucide-react';
+import { Check, X as XIcon, Crown, Award, Star, Gem, CheckCircle2, Phone } from 'lucide-react';
 
 const App: React.FC = () => {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
@@ -53,7 +53,7 @@ const App: React.FC = () => {
   };
 
   const updateCartQuantity = (id: string, delta: number) => {
-    setCart(prev => prev.map(item => 
+    setCart(prev => prev.map(item =>
       item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
     ));
   };
@@ -81,30 +81,30 @@ const App: React.FC = () => {
         return <Home onNavigate={navigate} onAddToCart={addToCart} />;
       case 'shop':
         return (
-          <Shop 
-            onNavigate={navigate} 
-            onAddToCart={addToCart} 
-            initialFilters={pageParams} 
+          <Shop
+            onNavigate={navigate}
+            onAddToCart={addToCart}
+            initialFilters={pageParams}
             wishlist={wishlist}
             onToggleWishlist={toggleWishlist}
           />
         );
       case 'product':
         return (
-          <ProductDetail 
-            id={pageParams.id} 
-            onAddToCart={addToCart} 
-            onNavigate={navigate} 
+          <ProductDetail
+            id={pageParams.id}
+            onAddToCart={addToCart}
+            onNavigate={navigate}
             onToggleWishlist={toggleWishlist}
             isInWishlist={wishlist.some(w => w.id === pageParams.id)}
           />
         );
       case 'cart':
         return (
-          <Cart 
-            items={cart} 
-            onUpdateQuantity={updateCartQuantity} 
-            onRemove={removeFromCart} 
+          <Cart
+            items={cart}
+            onUpdateQuantity={updateCartQuantity}
+            onRemove={removeFromCart}
             onCheckout={() => {
               showToast('Processing your selection... Redirecting to secure vault.');
             }}
@@ -113,11 +113,11 @@ const App: React.FC = () => {
         );
       case 'wishlist':
         return (
-          <Wishlist 
-            items={wishlist} 
-            onNavigate={navigate} 
-            onAddToCart={addToCart} 
-            onToggleWishlist={toggleWishlist} 
+          <Wishlist
+            items={wishlist}
+            onNavigate={navigate}
+            onAddToCart={addToCart}
+            onToggleWishlist={toggleWishlist}
           />
         );
       case 'contact':
@@ -142,26 +142,26 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-24">
                 <h4 className="text-[#d4af37] text-xs uppercase tracking-[0.5em] font-bold mb-6">Exclusive Allocations</h4>
-                <h1 className="text-6xl md:text-7xl font-serif mb-8 italic">The G-Town Circle</h1>
-                <p className="text-xl font-lora italic max-w-2xl mx-auto mb-16 opacity-80">Experience the exclusive benefits of G-Town membership. Private allocations, member-only events, and curated shipments designed for the discerning palate.</p>
-                
+                <h1 className="text-4xl md:text-7xl font-serif mb-8 italic">The G-Town Circle</h1>
+                <p className="text-md md:text-xl font-lora italic max-w-2xl mx-auto mb-16 opacity-80">Experience the exclusive benefits of G-Town membership. Private allocations, member-only events, and curated shipments designed for the discerning palate.</p>
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
                   {[
-                    { tier: 'Silver', price: '185', bottles: '6', icon: <Star size={24} className="text-gray-400" /> },
-                    { tier: 'Gold', price: '350', bottles: '12', icon: <Crown size={24} className="text-[#d4af37]" /> },
-                    { tier: 'Platinum', price: '650', bottles: '24', icon: <Gem size={24} className="text-white" /> }
+                    { tier: 'Silver', price: '185', bottles: '6', image: '/Silver.png' },
+                    { tier: 'Gold', price: '350', bottles: '12', image: '/Gold.png' },
+                    { tier: 'Platinum', price: '650', bottles: '24', image: '/Purple.png' }
                   ].map(item => (
-                    <div key={item.tier} className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 rounded-sm space-y-8 hover:bg-white/10 transition-all cursor-pointer group flex flex-col items-center text-center">
-                      <div className="p-4 bg-white/10 rounded-full mb-2">{item.icon}</div>
-                      <h3 className="text-3xl font-serif text-[#d4af37] group-hover:scale-110 transition-transform">{item.tier}</h3>
+                    <div key={item.tier} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-sm space-y-8 hover:bg-white/10 transition-all cursor-pointer group flex flex-col items-center text-center">
+                      <img src={item.image} alt={item.tier} className="w-20 h-20 md:w-32 md:h-32 object-cover rounded-sm" />
                       <div className="space-y-1">
                         <p className="text-sm font-lora italic opacity-80">{item.bottles} Bottles / Semester</p>
                         <p className="text-[11px] uppercase tracking-widest font-bold">Starting at ${item.price}</p>
                       </div>
-                      <ul className="text-[10px] uppercase tracking-[0.2em] space-y-4 font-bold border-t border-white/10 pt-8 w-full">
-                        <li className="flex items-center justify-center"><Check size={14} className="mr-2 text-[#d4af37]" /> 15% Collection Discount</li>
-                        <li className="flex items-center justify-center"><Check size={14} className="mr-2 text-[#d4af37]" /> Complimentary Shipping</li>
-                        <li className="flex items-center justify-center"><Check size={14} className="mr-2 text-[#d4af37]" /> Library Access</li>
+                      <ul className="relative text-[10px] uppercase tracking-[0.2em] space-y-4 font-bold pt-4 w-full text-left">
+                        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
+                        <li className="flex items-center"><Check size={14} className="mr-2 text-[#d4af37]" /> 15% Collection Discount</li>
+                        <li className="flex items-center"><Check size={14} className="mr-2 text-[#d4af37]" /> Complimentary Shipping</li>
+                        <li className="flex items-center"><Check size={14} className="mr-2 text-[#d4af37]" /> Library Access</li>
                       </ul>
                       <button onClick={() => showToast(`Welcome to the ${item.tier} Circle. Selection confirmed.`)} className="w-full bg-[#d4af37] text-[#2a2a2a] py-5 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white transition-colors mt-auto">Join {item.tier}</button>
                     </div>
@@ -177,15 +177,27 @@ const App: React.FC = () => {
 
                   <div className="overflow-x-auto">
                     <table className="w-full text-left bg-white/5 border border-white/10 rounded-sm">
-                      <thead className="bg-white/5 text-[#d4af37] font-bold uppercase tracking-[0.2em] text-[10px]">
+
+                      {/* Header */}
+                      <thead className="bg-white/5 uppercase tracking-[0.25em] text-[10px] font-semibold">
                         <tr>
-                          <th className="px-8 py-6">Privilege Features</th>
-                          <th className="px-8 py-6 text-center">Silver</th>
-                          <th className="px-8 py-6 text-center">Gold</th>
-                          <th className="px-8 py-6 text-center text-white">Platinum</th>
+                          <th className="px-8 py-6 text-white/90">
+                            Privilege Features
+                          </th>
+                          <th className="px-8 py-6 text-center text-[#b8b8b8]">
+                            Silver
+                          </th>
+                          <th className="px-8 py-6 text-center text-[#d4af37]">
+                            Gold
+                          </th>
+                          <th className="px-8 py-6 text-center text-[#8b7bbd]">
+                            Platinum
+                          </th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-white/5 text-[11px] uppercase tracking-widest font-bold">
+
+                      {/* Body */}
+                      <tbody className="divide-y divide-white/5 text-[11px] uppercase tracking-widest font-semibold">
                         {[
                           { feature: 'Annual Allocation', s: '6 Bottles', g: '12 Bottles', p: '24 Bottles' },
                           { feature: 'Cellar Discount', s: '10%', g: '15%', p: '20%' },
@@ -196,28 +208,96 @@ const App: React.FC = () => {
                           { feature: 'Temperature Controlled Shipping', s: 'Subsidized', g: 'Free', p: 'Priority Free' },
                           { feature: 'Pre-release Allocation', s: false, g: '48h Early', p: '7 Days Early' }
                         ].map((row, i) => (
-                          <tr key={i} className="hover:bg-white/5 transition-colors">
-                            <td className="px-8 py-6 opacity-70">{row.feature}</td>
-                            <td className="px-8 py-6 text-center">
-                              {typeof row.s === 'boolean' ? (row.s ? <CheckCircle2 size={16} className="mx-auto text-[#d4af37]" /> : <XIcon size={16} className="mx-auto opacity-20" />) : row.s}
+                          <tr
+                            key={i}
+                            className="hover:bg-white/[0.03] transition-colors duration-300"
+                          >
+
+                            {/* Feature */}
+                            <td className="px-8 py-6 text-white/85">
+                              {row.feature}
                             </td>
-                            <td className="px-8 py-6 text-center">
-                              {typeof row.g === 'boolean' ? (row.g ? <CheckCircle2 size={16} className="mx-auto text-[#d4af37]" /> : <XIcon size={16} className="mx-auto opacity-20" />) : row.g}
+
+                            {/* Silver */}
+                            <td className="px-8 py-6 text-center text-[#b8b8b8]">
+                              {typeof row.s === 'boolean'
+                                ? row.s
+                                  ? <CheckCircle2 size={15} className="mx-auto text-[#6f8f7a]" />
+                                  : <XIcon size={15} className="mx-auto text-[#8a8073]" />
+                                : row.s}
                             </td>
-                            <td className="px-8 py-6 text-center text-white">
-                              {typeof row.p === 'boolean' ? (row.p ? <CheckCircle2 size={16} className="mx-auto" /> : <XIcon size={16} className="mx-auto opacity-20" />) : row.p}
+
+                            {/* Gold */}
+                            <td className="px-8 py-6 text-center text-[#d4af37]">
+                              {typeof row.g === 'boolean'
+                                ? row.g
+                                  ? <CheckCircle2 size={15} className="mx-auto text-[#6f8f7a]" />
+                                  : <XIcon size={15} className="mx-auto text-[#8a8073]" />
+                                : row.g}
                             </td>
+
+                            {/* Platinum */}
+                            <td className="px-8 py-6 text-center text-[#8b7bbd]">
+                              {typeof row.p === 'boolean'
+                                ? row.p
+                                  ? <CheckCircle2 size={15} className="mx-auto text-[#6f8f7a]" />
+                                  : <XIcon size={15} className="mx-auto text-[#8a8073]" />
+                                : row.p}
+                            </td>
+
                           </tr>
                         ))}
                       </tbody>
                     </table>
                   </div>
-                  
-                  <div className="pt-12">
-                     <button onClick={() => navigate('contact')} className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-[10px] border-b border-[#d4af37] pb-2 hover:text-white hover:border-white transition-all">
-                       Contact Curator for Corporate & Bespoke Memberships
-                     </button>
+
+
+                  <div className="pt-12 w-full flex justify-center">
+                    <button
+                      onClick={() => navigate('contact')}
+                      className="flex flex-col items-center gap-4 group"
+                    >
+                      <span className="text-[#d4af37] uppercase tracking-[0.4em] font-bold text-[10px] md:border-b md:border-[#d4af37] md:pb-2 hover:text-white md:hover:border-white transition-all text-center">
+                        Contact Curator for Corporate & Bespoke Memberships
+                      </span>
+
+                      {/* Balanced Circle */}
+                      <div className="relative w-16 h-16">
+                        <svg
+                          className="w-full h-full animate-spin"
+                          style={{ animationDuration: '6s' }}
+                          viewBox="0 0 100 100"
+                        >
+                          <defs>
+                            <path
+                              id="circlePath"
+                              d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
+                              fill="none"
+                            />
+                          </defs>
+
+                          <text
+                            className="text-[11px] font-bold fill-[#d4af37]"
+                            letterSpacing="7.5"
+                          >
+                            <textPath href="#circlePath">
+                              CONTACT CURATOR CONTACT CURATOR
+                            </textPath>
+                          </text>
+                        </svg>
+
+                        {/* Call Icon */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Phone
+                            size={14}
+                            strokeWidth={1.5}
+                            className="text-[#d4af37]"
+                          />
+                        </div>
+                      </div>
+                    </button>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -231,13 +311,13 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-[#722f3f] selection:text-white relative">
       {!isAgeVerified && <AgeVerification onVerify={() => setIsAgeVerified(true)} />}
-      
-      <Header 
-        onNavigate={navigate} 
-        cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)} 
+
+      <Header
+        onNavigate={navigate}
+        cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
         wishlistCount={wishlist.length}
       />
-      
+
       <main className="flex-grow">
         {renderPage()}
       </main>
