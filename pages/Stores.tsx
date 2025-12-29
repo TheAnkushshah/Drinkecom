@@ -34,9 +34,9 @@ const STORES: Store[] = [
     hours: '10:00 AM - 11:00 PM',
     amenities: ['35,000 sq. ft.', 'Private Vaults', 'Women Only Lounge', 'Valet Parking', 'Sommelier on Site'],
     images: [
-      'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=1200'
+      '/Store1.png',
+      '/Store2.png',
+      '/Store3.png'
     ],
     isWomenFriendly: true,
     hasTastingRoom: true,
@@ -58,8 +58,9 @@ const STORES: Store[] = [
     hours: '11:00 AM - 10:00 PM',
     amenities: ['Rare Vintage Library', 'Tasting Bar', 'Concierge Service'],
     images: [
-      'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1200'
+      '/Store2.png',
+      '/Store1.png',
+      '/Store3.png'
     ],
     isWomenFriendly: true,
     hasTastingRoom: true,
@@ -81,9 +82,9 @@ const STORES: Store[] = [
     hours: '10:30 AM - 10:30 PM',
     amenities: ['Quick Collection', 'Premium Spirits Gallery', 'Gift Wrapping'],
     images: [
-      'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1200'
+      '/Store3.png',
+      '/Store2.png',
+      '/Store1.png'
     ],
     isWomenFriendly: true,
     hasTastingRoom: false,
