@@ -281,7 +281,7 @@ const App: React.FC = () => {
                             letterSpacing="7.5"
                           >
                             <textPath href="#circlePath">
-                              CONTACT CURATOR CONTACT CURATOR
+                              CONTACT
                             </textPath>
                           </text>
                         </svg>
