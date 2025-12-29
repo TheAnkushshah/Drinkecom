@@ -603,7 +603,7 @@ const Stores: React.FC = () => {
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md text-[#2a2a2a] px-4 sm:px-6 py-3 rounded-full text-xs sm:text-sm max-w-[90vw] shadow-xl">
                 <div className="flex flex-row items-center gap-2 sm:gap-3 justify-center">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-bold truncate max-w-[150px] sm:max-w-[250px]">{lightboxStore.name}</span>
-                  <span className="text-[#d4af37]">•</span>
+                    <span className="text-[#d4af37] flex items-center">•</span>
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-bold whitespace-nowrap text-gray-500">{lightboxImageIndex + 1} / {lightboxStore.images.length}</span>
                 </div>
               </div>
