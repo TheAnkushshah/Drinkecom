@@ -431,7 +431,7 @@ const Stores: React.FC = () => {
                   )}
                 </div>
                 
-                <div className="p-10 space-y-8 flex-grow flex flex-col">
+                <div className="p-6 md:p-10 space-y-8 flex-grow flex flex-col">
                   <div className="space-y-3">
                     <h3 className="text-2xl font-serif text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{store.name}</h3>
                     <div className="flex items-center space-x-2 text-gray-400">
