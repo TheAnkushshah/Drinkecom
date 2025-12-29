@@ -101,7 +101,7 @@ const Stores: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<'All' | 'Flagship' | 'Women-First'>('All');
   const [selectedCity, setSelectedCity] = useState('All Cities');
-  const [currentImageIndex, setCurrentImageIndex] = useState<{[key: string]: number}>({});
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({});
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxStore, setLightboxStore] = useState<Store | null>(null);
   const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
@@ -109,9 +109,9 @@ const Stores: React.FC = () => {
   const filteredStores = useMemo(() => {
     return STORES.filter(s => {
       const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || s.area.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesType = activeFilter === 'All' || 
-                         (activeFilter === 'Flagship' && s.type === 'Flagship') || 
-                         (activeFilter === 'Women-First' && s.isWomenFriendly);
+      const matchesType = activeFilter === 'All' ||
+        (activeFilter === 'Flagship' && s.type === 'Flagship') ||
+        (activeFilter === 'Women-First' && s.isWomenFriendly);
       const matchesCity = selectedCity === 'All Cities' || s.city === selectedCity;
       return matchesSearch && matchesType && matchesCity;
     });
@@ -132,9 +132,9 @@ const Stores: React.FC = () => {
   const navigateLightbox = (direction: 'prev' | 'next') => {
     if (!lightboxStore) return;
     const totalImages = lightboxStore.images.length;
-    setLightboxImageIndex(prev => 
-      direction === 'next' 
-        ? (prev + 1) % totalImages 
+    setLightboxImageIndex(prev =>
+      direction === 'next'
+        ? (prev + 1) % totalImages
         : (prev - 1 + totalImages) % totalImages
     );
   };
@@ -157,12 +157,12 @@ const Stores: React.FC = () => {
         </div>
 
         <div className="relative z-10 text-center space-y-8 px-6 max-w-4xl h-full flex flex-col items-center justify-center">
-           <div className="space-y-4">
-             <h1 className="text-4xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000 drop-shadow-2xl">
-               Locate G-Town
-             </h1>
-             <div className="h-px w-40 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
-           </div>
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000 drop-shadow-2xl">
+              Locate G-Town
+            </h1>
+            <div className="h-px w-40 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
+          </div>
           <p className="max-w-3xl mx-auto text-md md:text-xl font-lora italic text-white/85 leading-relaxed">
             Discover NCR's most sophisticated sanctuaries for premium wines and spirits. Over 450 destinations of unrivaled prestige.
           </p>
@@ -183,7 +183,7 @@ const Stores: React.FC = () => {
             {/* Decorative Corner Elements */}
             <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#d4af37]/20 pointer-events-none"></div>
             <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#d4af37]/20 pointer-events-none"></div>
-            
+
             <div className="relative z-10">
               {/* Section Header */}
               <div className="text-center mb-12 pb-8 relative">
@@ -204,19 +204,19 @@ const Stores: React.FC = () => {
                     <span className="w-2 h-2 bg-[#d4af37] rotate-45"></span>
                     <span>Discover Location</span>
                   </label>
-                  <div className="relative group rounded-md overflow-hidden">
+                  <div className="relative group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#722f3f]/10 via-white to-[#d4af37]/15 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 blur-xl"></div>
-                    <div className="relative border-2 border-[#e8e6e1] group-focus-within:border-[#722f3f] bg-white/80 backdrop-blur-sm shadow-lg shadow-[#722f3f]/5 rounded-md transition-all">
+                    <div className="relative border-2 border-[#e8e6e1] group-focus-within:border-[#722f3f] bg-white/80 backdrop-blur-sm shadow-lg shadow-[#722f3f]/5 transition-all">
                       <Search size={20} className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-[#722f3f] transition-colors" />
-                      <input 
-                        type="text" 
-                        placeholder="Enter area, landmark, or store name..." 
+                      <input
+                        type="text"
+                        placeholder="Enter area, landmark, or store name..."
                         className="w-full pl-14 pr-10 py-5 bg-transparent outline-none text-sm font-lora italic tracking-wide"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                       />
                       {searchQuery && (
-                        <button 
+                        <button
                           onClick={() => setSearchQuery('')}
                           className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#722f3f] transition-colors"
                         >
@@ -226,17 +226,17 @@ const Stores: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* City Selector */}
                 <div className="lg:col-span-3 space-y-4">
                   <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 flex items-center space-x-2">
                     <MapPin size={10} className="text-[#d4af37]" />
                     <span>Territory</span>
                   </label>
-                  <div className="relative group rounded-md overflow-hidden">
+                  <div className="relative group overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 via-white to-[#722f3f]/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 blur-xl"></div>
-                    <div className="relative border-2 border-[#e8e6e1] group-focus-within:border-[#d4af37] bg-white/85 backdrop-blur-sm shadow-lg shadow-[#d4af37]/5 rounded-md transition-all">
-                      <select 
+                    <div className="relative border-2 border-[#e8e6e1] group-focus-within:border-[#d4af37] bg-white/85 backdrop-blur-sm shadow-lg shadow-[#d4af37]/5 transition-all">
+                      <select
                         className="w-full bg-transparent py-5 px-5 outline-none font-serif text-sm cursor-pointer appearance-none"
                         value={selectedCity}
                         onChange={(e) => setSelectedCity(e.target.value)}
@@ -249,7 +249,7 @@ const Stores: React.FC = () => {
                       </select>
                       <div className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#722f3f]">
                         <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
-                          <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" fill="none"/>
+                          <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" fill="none" />
                         </svg>
                       </div>
                     </div>
@@ -258,43 +258,81 @@ const Stores: React.FC = () => {
 
                 {/* Filter Buttons */}
                 <div className="lg:col-span-3 space-y-4">
-                  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 flex items-center space-x-2">
-                    <Star size={10} className="text-[#d4af37]" />
-                    <span>Experience</span>
-                  </label>
-                  <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { key: 'All', label: 'Stores', icon: <Landmark size={14} /> },
-                      { key: 'Flagship', label: 'Flagship', icon: <Crown size={14} /> },
-                      { key: 'Women-First', label: 'Women', icon: <Heart size={14} /> }
-                    ].map(filter => (
-                      <button
-                        key={filter.key}
-                        onClick={() => setActiveFilter(filter.key as any)}
-                        className={`relative overflow-hidden py-6 px-4 text-[9px] uppercase tracking-[0.15em] font-bold border-2 transition-all duration-500 rounded-sm group ${
-                          activeFilter === filter.key 
-                          ? 'bg-gradient-to-br from-[#722f3f] via-[#8b3a4f] to-[#5a2532] text-white border-[#722f3f] shadow-2xl shadow-[#722f3f]/40 scale-105' 
-                          : 'bg-white text-gray-500 border-[#e8e6e1] hover:border-[#d4af37] hover:text-[#722f3f] hover:shadow-lg'
-                        }`}
-                      >
-                        {/* Animated background gradient on hover */}
-                        <div className={`absolute inset-0 bg-gradient-to-r from-[#d4af37]/0 via-[#d4af37]/10 to-[#d4af37]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${activeFilter === filter.key ? 'hidden' : ''}`}></div>
-                        
-                        <div className="relative flex flex-col items-center justify-center space-y-2">
-                          <div className={`transition-all duration-300 ${activeFilter === filter.key ? 'text-white scale-110' : 'text-[#d4af37] group-hover:scale-110'}`}>
-                            {filter.icon}
-                          </div>
-                          <span className="leading-tight">{filter.label}</span>
-                        </div>
+  <label className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400 flex items-center space-x-2">
+    <Star size={10} className="text-[#d4af37]" />
+    <span>Experience</span>
+  </label>
 
-                        {/* Active indicator dot */}
-                        {activeFilter === filter.key && (
-                          <div className="absolute top-2 right-2 w-2 h-2 bg-[#d4af37] rounded-full animate-pulse"></div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+  <div className="grid grid-cols-3 gap-3">
+    {[
+      { key: 'All', label: 'Stores', icon: <Landmark size={18} /> },
+      { key: 'Flagship', label: 'Flagship', icon: <Crown size={18} /> },
+      { key: 'Women-First', label: 'Women', icon: <Heart size={18} /> }
+    ].map(filter => (
+      <button
+        key={filter.key}
+        onClick={() => setActiveFilter(filter.key as any)}
+        className={`relative overflow-hidden h-[70px] w-[70px] rounded-full border-2
+          flex items-center justify-center group transition-all duration-500
+          outline-none focus:outline-none focus-visible:outline-none
+          ring-0 focus:ring-0 focus-visible:ring-0
+          ${
+            activeFilter === filter.key
+              ? 'bg-gradient-to-br from-[#722f3f] via-[#8b3a4f] to-[#5a2532] text-white border-[#722f3f] scale-105 translate-y-[1px] shadow-[0_25px_60px_-15px_rgba(114,47,63,0.6)]'
+              : 'bg-white text-gray-500 border-[#e8e6e1] hover:border-[#d4af37] hover:shadow-xl'
+          }`}
+      >
+        {/* Premium radial glow (hover only) */}
+        <div
+          className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500
+            ${activeFilter === filter.key ? 'hidden' : ''}
+            bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.18),transparent_65%)]
+          `}
+        />
+
+        {/* Subtle inner highlight for active */}
+        {activeFilter === filter.key && (
+          <div className="absolute inset-[3px] rounded-full bg-white/5 pointer-events-none" />
+        )}
+
+        {/* CONTENT */}
+        <div className="relative flex items-center justify-center w-full h-full">
+          {/* ICON (default) */}
+          <div
+            className={`absolute transition-all duration-300
+              ${
+                activeFilter === filter.key
+                  ? 'opacity-0 scale-75'
+                  : 'opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-75'
+              }
+              ${activeFilter === filter.key ? 'text-white' : 'text-[#d4af37]'}
+            `}
+          >
+            {filter.icon}
+          </div>
+
+          {/* TEXT (hover / active) */}
+          <span
+            className={`absolute text-[9px] uppercase tracking-[0.15em] font-bold transition-all duration-300
+              ${
+                activeFilter === filter.key
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100'
+              }`}
+          >
+            {filter.label}
+          </span>
+        </div>
+
+        {/* Active indicator */}
+        {activeFilter === filter.key && (
+          <div className="absolute top-2 right-1/2 translate-x-1/2 w-2 h-2 bg-[#d4af37] rounded-full animate-pulse" />
+        )}
+      </button>
+    ))}
+  </div>
+</div>
+
               </div>
             </div>
           </div>
@@ -310,10 +348,10 @@ const Stores: React.FC = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 border border-[#d4af37]/20 pointer-events-none group-hover:inset-0 transition-all duration-700"></div>
                 <div className="aspect-square overflow-hidden shadow-2xl relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1000" 
-                    className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110" 
-                    alt="Grand Flagship" 
+                  <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=1000"
+                    className="w-full h-full object-cover transition-transform duration-[3000ms] group-hover:scale-110"
+                    alt="Grand Flagship"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-10 left-10 text-white">
@@ -370,37 +408,36 @@ const Stores: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-serif italic text-[#2a2a2a]">Curated Destinations</h2>
             </div>
             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 sm:mb-0 text-right w-full sm:w-auto">
-               Showing {filteredStores.length} premium locations
-             </p>
+              Showing {filteredStores.length} premium locations
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {filteredStores.map(store => (
               <div key={store.id} className="bg-white border border-[#e8e6e1] rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-700 group flex flex-col h-full">
-                <div 
+                <div
                   className="h-64 overflow-hidden relative cursor-pointer"
                   onClick={() => openLightbox(store, currentImageIndex[store.id] || 0)}
                 >
-                  <img 
-                    src={store.images[currentImageIndex[store.id] || 0]} 
-                    alt={`${store.name} - Image ${(currentImageIndex[store.id] || 0) + 1}`} 
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000" 
+                  <img
+                    src={store.images[currentImageIndex[store.id] || 0]}
+                    alt={`${store.name} - Image ${(currentImageIndex[store.id] || 0) + 1}`}
+                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000"
                   />
-                  
+
                   <div className="absolute top-6 right-6 bg-black/70 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center space-x-1 shadow-lg">
                     <span>{store.rating.toFixed(1)}</span>
                     <Star size={12} className="text-[#d4af37]" />
                   </div>
-                  
-                  <div className={`absolute bottom-6 left-6 px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest flex items-center space-x-2 shadow-lg ${
-                    store.isOpen 
-                      ? 'bg-green-500/90 text-white' 
+
+                  <div className={`absolute bottom-6 left-6 px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest flex items-center space-x-2 shadow-lg ${store.isOpen
+                      ? 'bg-green-500/90 text-white'
                       : 'bg-red-500/90 text-white'
-                  }`}>
+                    }`}>
                     <span className={`w-2 h-2 rounded-full ${store.isOpen ? 'bg-white animate-pulse' : 'bg-white'}`}></span>
                     <span>{store.isOpen ? 'Open Now' : 'Closed'}</span>
                   </div>
-                  
+
                   {/* Image Navigation Dots */}
                   {store.images.length > 1 && (
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -411,11 +448,10 @@ const Stores: React.FC = () => {
                             e.stopPropagation();
                             setCurrentImageIndex(prev => ({ ...prev, [store.id]: idx }));
                           }}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            (currentImageIndex[store.id] || 0) === idx 
-                              ? 'bg-[#d4af37] w-6' 
+                          className={`w-2 h-2 rounded-full transition-all ${(currentImageIndex[store.id] || 0) === idx
+                              ? 'bg-[#d4af37] w-6'
                               : 'bg-white/50 hover:bg-white/80'
-                          }`}
+                            }`}
                           aria-label={`View image ${idx + 1}`}
                         />
                       ))}
@@ -431,7 +467,7 @@ const Stores: React.FC = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="p-6 md:p-10 space-y-8 flex-grow flex flex-col">
                   <div className="space-y-3">
                     <h3 className="text-2xl font-serif text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{store.name}</h3>
@@ -473,11 +509,10 @@ const Stores: React.FC = () => {
                         {[...Array(5)].map((_, i) => (
                           <span
                             key={i}
-                            className={`text-sm ${
-                              i < store.priceRange.length
+                            className={`text-sm ${i < store.priceRange.length
                                 ? 'text-[#d4af37]'
                                 : 'text-gray-300'
-                            }`}
+                              }`}
                           >
                             ₹
                           </span>
@@ -534,7 +569,7 @@ const Stores: React.FC = () => {
                 <Search size={48} className="mx-auto text-gray-200" />
                 <h3 className="text-xl font-serif">No destinations found</h3>
                 <p className="text-sm font-lora italic text-gray-400">Try broadening your search or exploring all cities in the dominion.</p>
-                <button onClick={() => {setSearchQuery(''); setActiveFilter('All'); setSelectedCity('All Cities');}} className="text-[#722f3f] font-bold uppercase tracking-widest text-[10px] border-b-2 border-[#722f3f] pb-1">Reset Filters</button>
+                <button onClick={() => { setSearchQuery(''); setActiveFilter('All'); setSelectedCity('All Cities'); }} className="text-[#722f3f] font-bold uppercase tracking-widest text-[10px] border-b-2 border-[#722f3f] pb-1">Reset Filters</button>
               </div>
             </div>
           )}
@@ -543,29 +578,29 @@ const Stores: React.FC = () => {
 
       {/* Trust & Amenities Section */}
       <section className="py-24 bg-[#111111] text-white">
-         <div className="max-w-7xl mx-auto px-6">
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-             {[
-               { icon: <ShieldCheck className="text-[#d4af37]" />, title: "Secure Acquisition", desc: "100% authenticity guaranteed at every outlet in our network." },
-               { icon: <Heart className="text-[#d4af37]" />, title: "Women-First Priority", desc: "Pioneering safe and sophisticated spirits shopping for women." },
-               { icon: <Car className="text-[#d4af37]" />, title: "Valet & Concierge", desc: "Complimentary valet parking available at all flagship destinations." },
-               { icon: <Coffee className="text-[#d4af37]" />, title: "Tasting Lounges", desc: "Sip before you acquire at our curated in-store tasting libraries." }
-             ].map((item, i) => (
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {[
+              { icon: <ShieldCheck className="text-[#d4af37]" />, title: "Secure Acquisition", desc: "100% authenticity guaranteed at every outlet in our network." },
+              { icon: <Heart className="text-[#d4af37]" />, title: "Women-First Priority", desc: "Pioneering safe and sophisticated spirits shopping for women." },
+              { icon: <Car className="text-[#d4af37]" />, title: "Valet & Concierge", desc: "Complimentary valet parking available at all flagship destinations." },
+              { icon: <Coffee className="text-[#d4af37]" />, title: "Tasting Lounges", desc: "Sip before you acquire at our curated in-store tasting libraries." }
+            ].map((item, i) => (
               <div key={i} className="space-y-6 group text-center md:text-left">
                 <div className="w-12 h-12 border border-white/10 flex items-center justify-center group-hover:border-[#d4af37] transition-colors mx-auto md:mx-0">
-                   {item.icon}
-                 </div>
+                  {item.icon}
+                </div>
                 <h4 className="text-xl font-serif">{item.title}</h4>
                 <p className="text-xs font-lora italic text-gray-400 leading-relaxed">{item.desc}</p>
-               </div>
-             ))}
-           </div>
-         </div>
-       </section>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-       {/* Lightbox Modal */}
+      {/* Lightbox Modal */}
       {lightboxOpen && lightboxStore && (
-        <div 
+        <div
           className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
@@ -577,7 +612,7 @@ const Stores: React.FC = () => {
             <X size={24} />
           </button>
 
-          <div 
+          <div
             className="relative max-w-6xl w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
@@ -599,12 +634,12 @@ const Stores: React.FC = () => {
                 alt={`${lightboxStore.name} - Image ${lightboxImageIndex + 1}`}
                 className="max-w-full max-h-full object-contain rounded-sm"
               />
-              
+
               {/* Image Info */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md text-[#2a2a2a] px-4 sm:px-6 py-3 rounded-full text-xs sm:text-sm max-w-[90vw] shadow-xl">
                 <div className="flex flex-row items-center gap-2 sm:gap-3 justify-center">
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-bold truncate max-w-[150px] sm:max-w-[250px]">{lightboxStore.name}</span>
-                    <span className="text-[#d4af37] flex items-center">•</span>
+                  <span className="text-[#d4af37] flex items-center">•</span>
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-bold whitespace-nowrap text-gray-500">{lightboxImageIndex + 1} / {lightboxStore.images.length}</span>
                 </div>
               </div>
@@ -628,11 +663,10 @@ const Stores: React.FC = () => {
                   <button
                     key={idx}
                     onClick={() => setLightboxImageIndex(idx)}
-                    className={`flex-shrink-0 w-16 h-16 rounded-sm overflow-hidden border-2 transition-all ${
-                      lightboxImageIndex === idx 
-                        ? 'border-[#d4af37] scale-110' 
+                    className={`flex-shrink-0 w-16 h-16 rounded-sm overflow-hidden border-2 transition-all ${lightboxImageIndex === idx
+                        ? 'border-[#d4af37] scale-110'
                         : 'border-white/30 hover:border-white/60'
-                    }`}
+                      }`}
                   >
                     <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
