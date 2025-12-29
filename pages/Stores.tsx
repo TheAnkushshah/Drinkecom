@@ -303,7 +303,7 @@ const Stores: React.FC = () => {
       {/* Flagship Spotlight */}
       {activeFilter === 'All' && !searchQuery && (
         <section className="py-24 bg-white overflow-hidden relative border-y border-[#e8e6e1]">
-          <div className="absolute top-0 right-0 text-[15vw] font-serif font-bold text-[#faf8f5] pointer-events-none select-none translate-x-1/4 -translate-y-1/4">FLAGSHIP</div>
+          <div className="absolute top-[2.5rem] left-[1.8rem] md:-top-[6rem] md:left-[22rem] text-[15vw] font-serif font-bold text-[#faf8f5] pointer-events-none select-none">FLAGSHIP</div>
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className="relative group">
