@@ -1,19 +1,19 @@
 
 import React, { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  MessageSquare, 
-  Clock, 
-  ArrowRight, 
-  Globe, 
-  Building2, 
-  UserCircle2, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Smartphone, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  MessageSquare,
+  Clock,
+  ArrowRight,
+  Globe,
+  Building2,
+  UserCircle2,
+  CheckCircle2,
+  ShieldCheck,
+  Smartphone,
   ChevronRight,
   Zap
 } from 'lucide-react';
@@ -34,7 +34,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
     message: '',
     interests: [] as string[]
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
@@ -46,19 +46,19 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
       return;
     }
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       onShowToast("Inquiry Transmitted. Our Master Sommelier will review your request shortly.");
-      setFormData({ 
-        name: '', 
-        email: '', 
-        phone: '', 
-        company: '', 
-        subject: 'General Inquiry', 
-        contactMethod: 'Email', 
-        message: '', 
-        interests: [] 
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        subject: 'General Inquiry',
+        contactMethod: 'Email',
+        message: '',
+        interests: []
       });
       setIsSubmitting(false);
       setIsVerified(false);
@@ -69,7 +69,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
   const handleInterestToggle = (interest: string) => {
     setFormData(prev => ({
       ...prev,
-      interests: prev.interests.includes(interest) 
+      interests: prev.interests.includes(interest)
         ? prev.interests.filter(i => i !== interest)
         : [...prev.interests, interest]
     }));
@@ -101,14 +101,14 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
       {/* Luxury Hero Section */}
       <section className="h-[70vh] pt-20 relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000" 
-            className="w-full h-full object-cover scale-105 animate-slow-zoom brightness-50" 
-            alt="Luxury Cellar" 
+          <img
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000"
+            className="w-full h-full object-cover scale-105 animate-slow-zoom brightness-50"
+            alt="Luxury Cellar"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 via-transparent to-[#faf8f5]" />
         </div>
-        
+
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent"></div>
         <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/10 to-transparent opacity-50"></div>
@@ -133,7 +133,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
       <section className="py-24 md:py-32 -mt-20 relative z-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            
+
             {/* Left Column: Presence & Info */}
             <div className="lg:col-span-4 space-y-16">
               <div className="space-y-6">
@@ -160,33 +160,59 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
               </div>
 
               {/* Enhanced Time Section */}
-              <div className="p-10 bg-white border border-[#e8e6e1] rounded-sm space-y-8 relative overflow-hidden group shadow-sm">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#722f3f]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-[#d4af37]/10 transition-colors"></div>
-                <div className="flex items-center space-x-4 relative z-10">
-                  <div className="p-2 bg-[#faf8f5] border border-[#e8e6e1] rounded-full">
-                    <Clock size={20} className="text-[#722f3f]" />
-                  </div>
-                  <h4 className="text-sm font-serif font-bold tracking-widest text-[#2a2a2a]">Concierge Availability</h4>
-                </div>
-                <div className="space-y-4 relative z-10">
-                  {[
-                    { days: 'Mon - Fri', hours: '09:00 — 18:00', active: true },
-                    { days: 'Saturday', hours: '10:00 — 16:00', active: true },
-                    { days: 'Sunday', hours: 'By Invitation Only', active: false }
-                  ].map((time, i) => (
-                    <div key={i} className={`flex justify-between items-center text-sm font-lora italic pb-3 border-b border-gray-50 last:border-none ${time.active ? 'text-gray-600' : 'text-gray-300'}`}>
-                      <span>{time.days}</span>
-                      <span className="font-serif font-bold">{time.hours}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <div className="relative rounded-sm 
+                      bg-[#722f3f]
+                      border border-white/5
+                      p-8 md:p-12 space-y-10
+                      shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
+
+                      {/* Header */}
+                      <div className="flex items-center space-x-5">
+                        <div className="p-3 rounded-full 
+                        border border-[#d4af37]/30">
+                        <Clock size={16} className="text-[#d4af37]" />
+                        </div>
+
+                        <h4 className="text-[11px] uppercase tracking-[0.45em] 
+                         font-serif font-medium text-[#d4af37]">
+                        Concierge Availability
+                        </h4>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="h-px bg-gradient-to-r 
+                        from-transparent via-white/10 to-transparent" />
+
+                      {/* Timings */}
+                      <div className="space-y-6">
+                        {[
+                        { days: 'Monday — Friday', hours: '09:00 — 18:00', active: true },
+                        { days: 'Saturday', hours: '10:00 — 16:00', active: true },
+                        { days: 'Sunday', hours: 'By Invitation Only', active: false }
+                        ].map((time, i) => (
+                        <div
+                          key={i}
+                          className={`flex justify-between items-center 
+                        text-[0.80rem] md:text-sm tracking-wide
+                        ${time.active ? 'text-[#cfcfcf]' : 'text-white/30'}`}
+                        >
+                          <span className="font-lora italic">
+                          {time.days}
+                          </span>
+
+                          <span className="font-serif not-italic tracking-[0.25em] text-[0.70rem] md:text-xs">
+                          {time.hours}
+                          </span>
+                        </div>
+                        ))}
+                      </div>
+                      </div>
             </div>
 
             {/* Right Column: Comprehensive Contact Form */}
             <div className="lg:col-span-8 bg-white p-10 md:p-20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-sm border border-[#e8e6e1] relative overflow-hidden group/form">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#722f3f]"></div>
-              
+
               <div className="space-y-8 mb-16">
                 <div className="flex items-center space-x-4">
                   <UserCircle2 size={24} className="text-[#d4af37]" />
@@ -204,43 +230,43 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2 relative group">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 group-focus-within:text-[#722f3f] transition-colors">Full Name / Title</label>
-                      <input 
+                      <input
                         required
-                        type="text" 
+                        type="text"
                         value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Julian Vane, Esq."
                         className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 group-focus-within:text-[#722f3f] transition-colors">Organization (Optional)</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         value={formData.company}
-                        onChange={(e) => setFormData({...formData, company: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Corporate entity"
                         className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 group-focus-within:text-[#722f3f] transition-colors">Email Address</label>
-                      <input 
+                      <input
                         required
-                        type="email" 
+                        type="email"
                         value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="correspondence@domain.com"
                         className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 group-focus-within:text-[#722f3f] transition-colors">Private Phone Number</label>
-                      <input 
+                      <input
                         required
-                        type="tel" 
+                        type="tel"
                         value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+1 (555) 000-0000"
                         className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
@@ -254,9 +280,9 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400">Nature of Inquiry</label>
-                      <select 
+                      <select
                         value={formData.subject}
-                        onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-serif cursor-pointer"
                       >
                         <option>General Concierge Inquiry</option>
@@ -273,11 +299,11 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       <div className="flex space-x-6 py-4">
                         {['Email', 'Phone', 'Digital Meeting'].map(method => (
                           <label key={method} className="flex items-center space-x-2 cursor-pointer group">
-                            <input 
-                              type="radio" 
-                              name="contactMethod" 
+                            <input
+                              type="radio"
+                              name="contactMethod"
                               checked={formData.contactMethod === method}
-                              onChange={() => setFormData({...formData, contactMethod: method})}
+                              onChange={() => setFormData({ ...formData, contactMethod: method })}
                               className="accent-[#722f3f] w-3 h-3"
                             />
                             <span className={`text-[10px] uppercase font-bold tracking-widest transition-colors ${formData.contactMethod === method ? 'text-[#722f3f]' : 'text-gray-400 group-hover:text-gray-600'}`}>{method}</span>
@@ -286,7 +312,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400">Areas of Interest</label>
                     <div className="flex flex-wrap gap-3">
@@ -295,11 +321,10 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                           key={interest}
                           type="button"
                           onClick={() => handleInterestToggle(interest)}
-                          className={`px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-bold border transition-all ${
-                            formData.interests.includes(interest) 
-                              ? 'bg-[#722f3f] text-white border-[#722f3f] shadow-md' 
+                          className={`px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-bold border transition-all ${formData.interests.includes(interest)
+                              ? 'bg-[#722f3f] text-white border-[#722f3f] shadow-md'
                               : 'bg-white text-gray-400 border-[#e8e6e1] hover:border-[#722f3f] hover:text-[#722f3f]'
-                          }`}
+                            }`}
                         >
                           {interest}
                         </button>
@@ -311,11 +336,11 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                 {/* Section 3: Details */}
                 <div className="space-y-2 group">
                   <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] border-b border-[#e8e6e1] pb-2 mb-8">03. Context & Requirements</h5>
-                  <textarea 
+                  <textarea
                     required
                     rows={6}
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="How may we assist you today? Please include any specific vintages or dates of interest."
                     className="w-full bg-[#faf8f5] border border-[#e8e6e1] p-6 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic resize-none leading-relaxed shadow-inner"
                   ></textarea>
@@ -335,21 +360,21 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       </div>
                     )}
                   </div>
-                  
+
                   <div className="relative h-14 bg-[#faf8f5] border border-[#e8e6e1] rounded-sm flex items-center px-2 group/slider">
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <span className={`text-[9px] uppercase tracking-[0.4em] font-bold transition-opacity duration-300 ${isVerified ? 'opacity-0' : 'opacity-30 group-hover/slider:opacity-50'}`}>
                         Slide to authenticate inquiry
                       </span>
                     </div>
-                    <div 
+                    <div
                       className="absolute left-0 h-full bg-[#722f3f]/5 transition-all duration-300"
                       style={{ width: `${sliderValue}%` }}
                     ></div>
-                    <input 
-                      type="range" 
-                      min="0" 
-                      max="100" 
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
                       value={sliderValue}
                       disabled={isVerified}
                       onChange={(e) => {
@@ -362,10 +387,9 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       }}
                       className={`relative z-10 w-full h-full opacity-0 cursor-pointer disabled:cursor-default`}
                     />
-                    <div 
-                      className={`absolute left-2 w-10 h-10 border flex items-center justify-center transition-all duration-300 pointer-events-none shadow-sm ${
-                        isVerified ? 'bg-[#d4af37] border-[#d4af37] text-white' : 'bg-white border-[#e8e6e1] text-[#722f3f]'
-                      }`}
+                    <div
+                      className={`absolute left-2 w-10 h-10 border flex items-center justify-center transition-all duration-300 pointer-events-none shadow-sm ${isVerified ? 'bg-[#d4af37] border-[#d4af37] text-white' : 'bg-white border-[#e8e6e1] text-[#722f3f]'
+                        }`}
                       style={{ left: `calc(${sliderValue}% - ${sliderValue * 0.4}px + 8px)`, transform: 'translateX(-50%)' }}
                     >
                       {isVerified ? <CheckCircle2 size={20} /> : <ChevronRight size={20} />}
@@ -375,7 +399,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
                 {/* Submit Action */}
                 <div className="pt-8">
-                  <button 
+                  <button
                     disabled={isSubmitting || !isVerified}
                     className="w-full bg-[#722f3f] text-white py-6 flex items-center justify-center space-x-6 uppercase tracking-[0.4em] text-[11px] font-bold hover:bg-[#5a2532] transition-all group disabled:opacity-30 disabled:cursor-not-allowed shadow-[0_20px_40px_-10px_rgba(114,47,63,0.3)] relative overflow-hidden"
                   >
@@ -402,21 +426,21 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
       {/* Stylized Google Maps Section */}
       <section className="h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000 border-y border-[#e8e6e1]">
         <div className="absolute inset-0 z-0 bg-gray-200">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d56111.75329423901!2d77.091903!3d28.480011!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19e14a98296b%3A0x7f3109494a3533d!2sG-Town%20Wines!5e0!3m2!1sen!2sin!4v1766414727963!5m2!1sen!2sin" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={true} 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d56111.75329423901!2d77.091903!3d28.480011!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19e14a98296b%3A0x7f3109494a3533d!2sG-Town%20Wines!5e0!3m2!1sen!2sin!4v1766414727963!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="G-Town Estate Map"
           ></iframe>
         </div>
-        
+
         {/* Top Left Overlay Container: Pinned to corner */}
         <div className="absolute top-0 left-0 z-10 flex animate-in slide-in-from-top-left duration-1000">
-          
+
           {/* NEW: G-Town Maps Element - High Prestige Branding Block */}
           <div className="bg-white/95 backdrop-blur-md p-8 border-r border-b border-[#d4af37]/30 shadow-2xl flex flex-col items-center justify-center space-y-4">
             <div className="w-12 h-12 border border-[#d4af37] flex items-center justify-center rotate-45 mb-1 group hover:bg-[#722f3f] transition-all duration-500 cursor-pointer">
@@ -448,39 +472,39 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
         {/* Bottom Right Overlay: Prestige Network Indicator - Anchored to Corner */}
         <div className="absolute bottom-0 right-0 z-10 bg-white/95 backdrop-blur-md p-8 border-t border-l border-[#d4af37]/30 shadow-2xl max-w-xs animate-in slide-in-from-bottom-right duration-1000">
-           <div className="space-y-6">
-             <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2 text-[#722f3f]">
-                   <Globe size={18} className="animate-[spin_10s_linear_infinite]" />
-                   <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">The Prestige Network</h4>
-                </div>
-                <div className="flex items-center space-x-1.5">
-                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-                   <span className="text-[8px] uppercase font-bold text-green-600 tracking-tighter">Live Sync</span>
-                </div>
-             </div>
-             
-             <div className="grid grid-cols-2 gap-8 border-y border-gray-100 py-4">
-                <div className="space-y-1">
-                   <p className="text-2xl font-serif text-[#722f3f] leading-none">18</p>
-                   <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Secure Vaults</p>
-                </div>
-                <div className="space-y-1">
-                   <p className="text-2xl font-serif text-[#722f3f] leading-none">72</p>
-                   <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Territories</p>
-                </div>
-             </div>
+          <div className="space-y-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2 text-[#722f3f]">
+                <Globe size={18} className="animate-[spin_10s_linear_infinite]" />
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">The Prestige Network</h4>
+              </div>
+              <div className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-[8px] uppercase font-bold text-green-600 tracking-tighter">Live Sync</span>
+              </div>
+            </div>
 
-             <div className="flex items-start space-x-3 group cursor-pointer">
-                <Zap size={14} className="text-[#d4af37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <div className="space-y-1">
-                   <p className="text-[9px] uppercase font-bold tracking-widest text-[#2a2a2a]">Concierge Logistics Active</p>
-                   <p className="text-[8px] font-lora italic text-gray-400 leading-relaxed">
-                      Global climate-controlled dispatches monitored 24/7 via private encrypted link.
-                   </p>
-                </div>
-             </div>
-           </div>
+            <div className="grid grid-cols-2 gap-8 border-y border-gray-100 py-4">
+              <div className="space-y-1">
+                <p className="text-2xl font-serif text-[#722f3f] leading-none">18</p>
+                <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Secure Vaults</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-2xl font-serif text-[#722f3f] leading-none">72</p>
+                <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Territories</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-3 group cursor-pointer">
+              <Zap size={14} className="text-[#d4af37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+              <div className="space-y-1">
+                <p className="text-[9px] uppercase font-bold tracking-widest text-[#2a2a2a]">Concierge Logistics Active</p>
+                <p className="text-[8px] font-lora italic text-gray-400 leading-relaxed">
+                  Global climate-controlled dispatches monitored 24/7 via private encrypted link.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Gradients to blend map with site edges */}
@@ -490,36 +514,36 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
       {/* Decorative Newsletter Banner */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center space-y-10">
-           <div className="relative">
-              <MessageSquare size={48} className="text-[#d4af37] opacity-20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-2 h-2 bg-[#722f3f] rounded-full animate-ping"></div>
-              </div>
-           </div>
-           <div className="space-y-6">
-             <h2 className="text-4xl md:text-5xl font-serif italic text-[#2a2a2a]">Join the Inner Circle</h2>
-             <p className="text-gray-500 font-lora italic text-lg max-w-xl mx-auto leading-relaxed">
-               Receive confidential dispatches regarding library releases, harvest reports, and private estate events.
-             </p>
-           </div>
-           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full justify-center">
-              <button 
-                onClick={() => onNavigate('shop')}
-                className="bg-[#722f3f] text-white px-12 py-5 uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-[#5a2532] transition-all flex items-center justify-center space-x-3 shadow-xl hover:scale-105"
-              >
-                <span>Browse The Collection</span>
-                <ArrowRight size={16} />
-              </button>
-              <button 
-                onClick={() => onNavigate('club')}
-                className="bg-white border border-[#722f3f] text-[#722f3f] px-12 py-5 uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-[#722f3f] hover:text-white transition-all hover:scale-105"
-              >
-                The Platinum Experience
-              </button>
-           </div>
+          <div className="relative">
+            <MessageSquare size={48} className="text-[#d4af37] opacity-20" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-2 h-2 bg-[#722f3f] rounded-full animate-ping"></div>
+            </div>
+          </div>
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-serif italic text-[#2a2a2a]">Join the Inner Circle</h2>
+            <p className="text-gray-500 font-lora italic text-lg max-w-xl mx-auto leading-relaxed">
+              Receive confidential dispatches regarding library releases, harvest reports, and private estate events.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full justify-center">
+            <button
+              onClick={() => onNavigate('shop')}
+              className="bg-[#722f3f] text-white px-12 py-5 uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-[#5a2532] transition-all flex items-center justify-center space-x-3 shadow-xl hover:scale-105"
+            >
+              <span>Browse The Collection</span>
+              <ArrowRight size={16} />
+            </button>
+            <button
+              onClick={() => onNavigate('club')}
+              className="bg-white border border-[#722f3f] text-[#722f3f] px-12 py-5 uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-[#722f3f] hover:text-white transition-all hover:scale-105"
+            >
+              The Platinum Experience
+            </button>
+          </div>
         </div>
       </section>
-      
+
       <style>{`
         @keyframes shimmer {
           100% { transform: translateX(100%); }
