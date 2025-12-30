@@ -99,7 +99,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
   return (
     <div className="animate-in fade-in duration-1000 bg-[#faf8f5]">
       {/* Luxury Hero Section */}
-      <section className="h-[70vh] relative overflow-hidden flex items-center justify-center">
+      <section className="h-[70vh] pt-20 relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=2000" 
@@ -121,10 +121,10 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
           </div>
           <div className="space-y-4">
             <h4 className="text-[10px] uppercase tracking-[0.8em] font-bold text-[#d4af37] animate-in slide-in-from-top-4 duration-700">Global Concierge</h4>
-            <h1 className="text-5xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000">Establish Network</h1>
+            <h1 className="text-4xl md:text-8xl font-serif italic text-white tracking-tight animate-in slide-in-from-bottom-4 duration-1000">Establish Network</h1>
             <div className="h-px w-24 bg-[#d4af37] mx-auto"></div>
           </div>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl font-lora italic text-white/90 leading-relaxed drop-shadow-lg">
+          <p className="max-w-2xl mx-auto text-md md:text-xl font-lora italic text-white/90 leading-relaxed drop-shadow-lg">
             Our curators are standing by to assist with private acquisitions, membership inquiries, or event logistics.
           </p>
         </div>
