@@ -161,52 +161,52 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
               {/* Enhanced Time Section */}
               <div className="relative rounded-sm 
-                      bg-[#722f3f]
-                      border border-white/5
-                      p-8 md:p-12 space-y-10
-                      shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
+                          bg-[#722f3f]
+                          border border-white/5
+                          p-8 md:p-12 space-y-10
+                          shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
 
-                      {/* Header */}
-                      <div className="flex items-center space-x-5">
-                        <div className="p-3 rounded-full 
-                        border border-[#d4af37]/30">
-                        <Clock size={16} className="text-[#d4af37]" />
-                        </div>
+                {/* Header */}
+                <div className="flex items-center space-x-5">
+                  <div className="p-3 rounded-full 
+                          border border-[#d4af37]/30">
+                    <Clock size={16} className="text-[#d4af37]" />
+                  </div>
 
-                        <h4 className="text-[11px] uppercase tracking-[0.45em] 
-                         font-serif font-medium text-[#d4af37]">
-                        Concierge Availability
-                        </h4>
-                      </div>
+                  <h4 className="text-[11px] uppercase tracking-[0.45em] 
+                           font-serif font-medium text-[#d4af37]">
+                    Concierge Availability
+                  </h4>
+                </div>
 
-                      {/* Divider */}
-                      <div className="h-px bg-gradient-to-r 
-                        from-transparent via-white/10 to-transparent" />
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r 
+                          from-transparent via-white/10 to-transparent" />
 
-                      {/* Timings */}
-                      <div className="space-y-6">
-                        {[
-                        { days: 'Monday — Friday', hours: '09:00 — 18:00', active: true },
-                        { days: 'Saturday', hours: '10:00 — 16:00', active: true },
-                        { days: 'Sunday', hours: 'By Invitation Only', active: false }
-                        ].map((time, i) => (
-                        <div
-                          key={i}
-                          className={`flex justify-between items-center 
-                        text-[0.80rem] md:text-sm tracking-wide
-                        ${time.active ? 'text-[#cfcfcf]' : 'text-white/30'}`}
-                        >
-                          <span className="font-lora italic">
-                          {time.days}
-                          </span>
+                {/* Timings */}
+                <div className="space-y-6">
+                  {[
+                    { days: 'Monday — Friday', hours: '09:00 — 18:00', active: true },
+                    { days: 'Saturday', hours: '10:00 — 16:00', active: true },
+                    { days: 'Sunday', hours: 'By Invitation Only', active: false }
+                  ].map((time, i) => (
+                    <div
+                      key={i}
+                      className={`flex justify-between items-center 
+                          text-[0.80rem] md:text-sm tracking-wide
+                          ${time.active ? 'text-[#cfcfcf]' : 'text-white/30'}`}
+                    >
+                      <span className="font-lora italic">
+                        {time.days}
+                      </span>
 
-                          <span className="font-serif not-italic tracking-[0.25em] text-[0.70rem] md:text-xs">
-                          {time.hours}
-                          </span>
-                        </div>
-                        ))}
-                      </div>
-                      </div>
+                      <span className="font-lora italic tracking-[0.25em] text-[0.70rem] md:text-xs">
+                        {time.hours}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Right Column: Comprehensive Contact Form */}
@@ -322,8 +322,8 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                           type="button"
                           onClick={() => handleInterestToggle(interest)}
                           className={`px-4 py-2 text-[9px] uppercase tracking-[0.2em] font-bold border transition-all ${formData.interests.includes(interest)
-                              ? 'bg-[#722f3f] text-white border-[#722f3f] shadow-md'
-                              : 'bg-white text-gray-400 border-[#e8e6e1] hover:border-[#722f3f] hover:text-[#722f3f]'
+                            ? 'bg-[#722f3f] text-white border-[#722f3f] shadow-md'
+                            : 'bg-white text-gray-400 border-[#e8e6e1] hover:border-[#722f3f] hover:text-[#722f3f]'
                             }`}
                         >
                           {interest}
