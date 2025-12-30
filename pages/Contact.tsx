@@ -214,10 +214,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
               <div className="absolute top-0 left-0 w-1 h-full bg-[#722f3f]"></div>
 
               <div className="space-y-8 mb-16">
-                <div className="flex items-center space-x-4">
-                  <UserCircle2 size={24} className="text-[#d4af37]" />
-                  <h2 className="text-3xl md:text-4xl font-serif text-[#2a2a2a]">Inquiry Dossier</h2>
-                </div>
+                <h2 className="text-3xl md:text-4xl font-serif text-[#2a2a2a]">Inquiry Dossier</h2>
                 <p className="text-sm font-lora italic text-gray-500 leading-relaxed max-w-xl">
                   Please provide exhaustive details regarding your requirements. Our specialists utilize this information to prepare a bespoke response tailored to your profile.
                 </p>
