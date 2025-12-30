@@ -152,7 +152,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-[9px] uppercase tracking-[0.4em] font-bold text-[#d4af37]">{method.title}</h3>
-                      <p className="text-xl font-serif text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{method.detail}</p>
+                      <p className="md:text-lg md:text-xl font-serif text-[#2a2a2a] group-hover:text-[#722f3f] transition-colors">{method.detail}</p>
                       <p className="text-xs font-lora text-gray-400 italic leading-relaxed">{method.desc}</p>
                     </div>
                   </div>
