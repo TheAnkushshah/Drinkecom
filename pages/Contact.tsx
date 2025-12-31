@@ -567,7 +567,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
               onClick={() => onNavigate('shop')}
               className="bg-[#722f3f] text-white px-12 py-5 uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-[#5a2532] transition-all flex items-center justify-center space-x-3 shadow-xl hover:scale-105"
             >
-              <span>Browse The Collection</span>
+              <span>shop The Collection</span>
               <ArrowRight size={16} />
             </button>
             <button
