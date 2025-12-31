@@ -210,7 +210,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
             </div>
 
             {/* Right Column: Comprehensive Contact Form */}
-            <div className="lg:col-span-8 bg-white p-10 md:p-20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-sm border border-[#e8e6e1] relative overflow-hidden group/form">
+            <div className="lg:col-span-8 bg-white p-8 md:p-20 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-sm border border-[#e8e6e1] relative overflow-hidden group/form">
               <div className="absolute top-0 left-0 w-1 h-full bg-[#722f3f]"></div>
 
               <div className="space-y-8 mb-16">
@@ -223,7 +223,10 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
               <form onSubmit={handleSubmit} className="space-y-12">
                 {/* Section 1: Identity */}
                 <div className="space-y-8">
-                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] border-b border-[#e8e6e1] pb-2">01. Identity & Affiliation</h5>
+                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] pb-2 relative">
+                    01. Identity & Affiliation
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e8e6e1] to-transparent"></span>
+                  </h5>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2 relative group">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400 group-focus-within:text-[#722f3f] transition-colors">Full Name / Title</label>
@@ -233,7 +236,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Julian Vane, Esq."
-                        className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
+                        className="w-full bg-transparent border border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
@@ -243,7 +246,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Corporate entity"
-                        className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
+                        className="w-full bg-transparent border border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
@@ -254,7 +257,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="correspondence@domain.com"
-                        className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
+                        className="w-full bg-transparent border border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                     <div className="space-y-2 relative group">
@@ -265,7 +268,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+1 (555) 000-0000"
-                        className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
+                        className="w-full bg-transparent border border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic px-2"
                       />
                     </div>
                   </div>
@@ -273,39 +276,57 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
                 {/* Section 2: Inquiry Parameters */}
                 <div className="space-y-8">
-                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] border-b border-[#e8e6e1] pb-2">02. Inquiry Parameters</h5>
+                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] pb-2 relative">
+                    02. Inquiry Parameters
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e8e6e1] to-transparent"></span>
+                  </h5>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400">Nature of Inquiry</label>
-                      <select
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full bg-[#faf8f5] border-b border-[#e8e6e1] py-4 outline-none focus:border-[#722f3f] transition-colors text-sm font-serif cursor-pointer"
-                      >
-                        <option>General Concierge Inquiry</option>
-                        <option>Platinum Circle Membership</option>
-                        <option>Private Estate Tasting</option>
-                        <option>Rare Allocation Access</option>
-                        <option>Investment Cellar Advisory</option>
-                        <option>Corporate Gifting Portfolio</option>
-                        <option>Logistical Support</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          value={formData.subject}
+                          onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                          className="w-full bg-transparent border border-[#e8e6e1] py-4 px-2 pr-10 outline-none focus:border-[#722f3f] transition-colors text-sm font-lora italic cursor-pointer appearance-none"
+                        >
+                          <option>General Concierge Inquiry</option>
+                          <option>Platinum Circle Membership</option>
+                          <option>Private Estate Tasting</option>
+                          <option>Rare Allocation Access</option>
+                          <option>Investment Cellar Advisory</option>
+                          <option>Corporate Gifting Portfolio</option>
+                          <option>Logistical Support</option>
+                        </select>
+                        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-[9px] uppercase tracking-widest font-bold text-gray-400">Preferred Contact Method</label>
                       <div className="flex space-x-6 py-4">
-                        {['Email', 'Phone', 'Digital Meeting'].map(method => (
-                          <label key={method} className="flex items-center space-x-2 cursor-pointer group">
-                            <input
-                              type="radio"
-                              name="contactMethod"
-                              checked={formData.contactMethod === method}
-                              onChange={() => setFormData({ ...formData, contactMethod: method })}
-                              className="accent-[#722f3f] w-3 h-3"
-                            />
-                            <span className={`text-[10px] uppercase font-bold tracking-widest transition-colors ${formData.contactMethod === method ? 'text-[#722f3f]' : 'text-gray-400 group-hover:text-gray-600'}`}>{method}</span>
-                          </label>
-                        ))}
+                        {['Email', 'Phone', 'Digital Meeting'].map(method => {
+                          const displayText = method === 'Digital Meeting' ? (
+                            <>
+                              <span className="hidden md:inline">Digital Meeting</span>
+                              <span className="md:hidden">Meeting</span>
+                            </>
+                          ) : method;
+                          return (
+                            <label key={method} className="flex items-center space-x-2 cursor-pointer group">
+                              <input
+                                type="radio"
+                                name="contactMethod"
+                                checked={formData.contactMethod === method}
+                                onChange={() => setFormData({ ...formData, contactMethod: method })}
+                                className="accent-[#722f3f] w-3 h-3"
+                              />
+                              <span className={`text-[10px] uppercase font-bold tracking-widest transition-colors ${formData.contactMethod === method ? 'text-[#722f3f]' : 'text-gray-400 group-hover:text-gray-600'}`}>{displayText}</span>
+                            </label>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -332,7 +353,11 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
                 {/* Section 3: Details */}
                 <div className="space-y-2 group">
-                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] border-b border-[#e8e6e1] pb-2 mb-8">03. Context & Requirements</h5>
+                  <h5 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#722f3f] pb-2 mb-8 relative">
+                    <span className="hidden md:inline">03. Context & Requirements</span>
+                    <span className="md:hidden">03. Cntxt & Req</span>
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#e8e6e1] to-transparent"></span>
+                  </h5>
                   <textarea
                     required
                     rows={6}
@@ -345,13 +370,16 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
 
                 {/* Elegant Anti-Spam Feature: Connoisseur Verification Slider */}
                 <div className="space-y-6 pt-6">
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-4 md:gap-0">
                     <div className="flex items-center space-x-3">
                       <ShieldCheck size={16} className="text-[#d4af37]" />
-                      <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">Connoisseur Verification</h5>
+                      <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
+                        <span className="hidden md:inline">Connoisseur Verification</span>
+                        <span className="md:hidden">Conn. Verification</span>
+                      </h5>
                     </div>
                     {isVerified && (
-                      <div className="flex items-center space-x-2 text-green-600 animate-in fade-in slide-in-from-right-4">
+                      <div className="hidden md:flex items-center space-x-2 text-green-600 animate-in fade-in slide-in-from-right-4">
                         <CheckCircle2 size={14} />
                         <span className="text-[9px] uppercase font-bold tracking-widest">Authenticated</span>
                       </div>
@@ -359,9 +387,10 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                   </div>
 
                   <div className="relative h-14 bg-[#faf8f5] border border-[#e8e6e1] rounded-sm flex items-center px-2 group/slider">
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="absolute inset-0 flex items-center justify-end md:justify-center pointer-events-none pr-4 md:pr-0">
                       <span className={`text-[9px] uppercase tracking-[0.4em] font-bold transition-opacity duration-300 ${isVerified ? 'opacity-0' : 'opacity-30 group-hover/slider:opacity-50'}`}>
-                        Slide to authenticate inquiry
+                        <span className="hidden md:inline">Slide to authenticate inquiry</span>
+                        <span className="md:hidden">Slide to Authenticate</span>
                       </span>
                     </div>
                     <div
@@ -392,6 +421,13 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       {isVerified ? <CheckCircle2 size={20} /> : <ChevronRight size={20} />}
                     </div>
                   </div>
+
+                  {isVerified && (
+                    <div className="md:hidden flex items-center justify-center space-x-2 text-green-600 animate-in fade-in slide-in-from-bottom-4">
+                      <CheckCircle2 size={14} />
+                      <span className="text-[9px] uppercase font-bold tracking-widest">Authenticated</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Submit Action */}
@@ -405,7 +441,10 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
                       <Clock size={20} className="animate-spin" />
                     ) : (
                       <>
-                        <span className="relative z-10">Transmit Formal Inquiry</span>
+                        <span className="relative z-10">
+                          <span className="hidden md:inline">Transmit Formal Inquiry</span>
+                          <span className="md:hidden">Transmit</span>
+                        </span>
                         <Send size={18} className="relative z-10 group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform" />
                       </>
                     )}
