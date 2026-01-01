@@ -38,6 +38,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
+  const [isPrestigeOpen, setIsPrestigeOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -459,8 +460,41 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
         </div>
       </section>
 
+      {/* G-Town Maps Component - Full Width for Smaller Screens */}
+      <div className="md:hidden w-full bg-white/95 backdrop-blur-md border-b border-[#d4af37]/30 shadow-2xl animate-in slide-in-from-top duration-1000">
+        <div className="flex flex-col">
+          {/* G-Town Maps Element */}
+          <div className="bg-white/95 backdrop-blur-md p-8 border-b border-[#d4af37]/30 shadow-2xl flex flex-col items-center justify-center space-y-4">
+            <div className="w-12 h-12 border border-[#d4af37] flex items-center justify-center rotate-45 mb-1 group hover:bg-[#722f3f] transition-all duration-500 cursor-pointer">
+              <Globe size={20} className="text-[#722f3f] -rotate-45 group-hover:text-white transition-colors" />
+            </div>
+            <div className="text-center">
+              <span className="text-[8px] uppercase tracking-[0.6em] font-bold text-gray-400 block mb-1">Explorer</span>
+              <span className="text-sm font-bold uppercase tracking-[0.3em] text-[#722f3f]">G-Town Maps</span>
+            </div>
+            <div className="h-px w-8 bg-[#d4af37]/40"></div>
+          </div>
+
+          {/* Estate Coordinates Component */}
+          <div className="bg-white/95 backdrop-blur-md p-8 border-[#d4af37]/30 shadow-2xl w-full">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2 text-[#722f3f]">
+                <MapPin size={18} />
+                <h4 className="text-[10px] uppercase tracking-widest font-bold">The Estate Coordinates</h4>
+              </div>
+              <p className="text-sm font-serif font-bold text-[#2a2a2a]">1250 Vineyard Way<br />St. Helena, CA 94574</p>
+              <p className="text-xs font-lora italic text-gray-500">Accessible via private road. Security clearance required at the main gate.</p>
+              <button className="flex items-center space-x-2 text-[#d4af37] text-[9px] uppercase font-bold tracking-widest hover:text-[#722f3f] transition-colors pt-2">
+                <span>View Global Navigation</span>
+                <ArrowRight size={12} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Stylized Google Maps Section */}
-      <section className="h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000 border-y border-[#e8e6e1]">
+      <section className="h-[600px] md:h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000 border-y border-[#e8e6e1]">
         <div className="absolute inset-0 z-0 bg-gray-200">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d56111.75329423901!2d77.091903!3d28.480011!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19e14a98296b%3A0x7f3109494a3533d!2sG-Town%20Wines!5e0!3m2!1sen!2sin!4v1766414727963!5m2!1sen!2sin"
@@ -474,11 +508,11 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
           ></iframe>
         </div>
 
-        {/* Top Left Overlay Container: Pinned to corner */}
-        <div className="absolute top-0 left-0 z-10 flex animate-in slide-in-from-top-left duration-1000">
+        {/* Top Left Overlay Container: Pinned to corner - Hidden on mobile */}
+        <div className="hidden md:flex absolute top-0 left-0 z-10 flex-col md:flex-row animate-in slide-in-from-top-left duration-1000">
 
           {/* NEW: G-Town Maps Element - High Prestige Branding Block */}
-          <div className="bg-white/95 backdrop-blur-md p-8 border-r border-b border-[#d4af37]/30 shadow-2xl flex flex-col items-center justify-center space-y-4">
+          <div className="bg-white/95 backdrop-blur-md p-8 border-r border-b md:border-r md:border-b border-[#d4af37]/30 shadow-2xl flex flex-col items-center justify-center space-y-4">
             <div className="w-12 h-12 border border-[#d4af37] flex items-center justify-center rotate-45 mb-1 group hover:bg-[#722f3f] transition-all duration-500 cursor-pointer">
               <Globe size={20} className="text-[#722f3f] -rotate-45 group-hover:text-white transition-colors" />
             </div>
@@ -490,7 +524,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
           </div>
 
           {/* Estate Coordinates Component - Adjacent Sibling */}
-          <div className="bg-white/95 backdrop-blur-md p-8 border-r border-b border-[#d4af37]/30 shadow-2xl max-w-xs">
+          <div className="bg-white/95 backdrop-blur-md p-8 border-r border-b md:border-r md:border-b border-[#d4af37]/30 shadow-2xl max-w-xs w-full md:w-auto">
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-[#722f3f]">
                 <MapPin size={18} />
@@ -506,10 +540,62 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
           </div>
         </div>
 
-        {/* Bottom Right Overlay: Prestige Network Indicator - Anchored to Corner */}
-        <div className="absolute bottom-0 right-0 z-10 bg-white/95 backdrop-blur-md p-8 border-t border-l border-[#d4af37]/30 shadow-2xl max-w-xs animate-in slide-in-from-bottom-right duration-1000">
+        {/* Magic Trigger Button - Mobile Only */}
+        <div className="md:hidden absolute bottom-0 inset-x-0 z-10">
+          <button
+            onClick={() => setIsPrestigeOpen(!isPrestigeOpen)}
+            className="w-full bg-white/95 backdrop-blur-md p-6 border-t border-[#d4af37]/30 shadow-2xl flex items-center justify-center space-x-3 hover:bg-white transition-all"
+          >
+            <Zap size={24} className="text-[#d4af37]" />
+            <span className="text-[9px] uppercase font-bold tracking-widest text-[#722f3f]\">Magic</span>
+          </button>
+
+          {/* Prestige Network Drawer - Mobile */}
+          {isPrestigeOpen && (
+            <div className="absolute bottom-20 right-0 max-w-xs bg-white/95 backdrop-blur-md border-t border-[#d4af37]/30 shadow-2xl z-20 animate-in slide-in-from-bottom duration-300">
+              <div className="w-full space-y-6">
+                <div className="flex items-center justify-between pb-6 px-8 pt-8 relative">
+                  <div className="flex items-center space-x-2 text-[#722f3f]">
+                    <Globe size={18} className="animate-[spin_10s_linear_infinite]" />
+                    <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">The Prestige Network</h4>
+                  </div>
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                    <span className="text-[8px] uppercase font-bold text-green-600 tracking-tighter">Live Sync</span>
+                  </div>
+                  <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent"></span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-8 pb-6 px-8 relative">
+                  <div className="space-y-1">
+                    <p className="text-2xl font-serif text-[#722f3f] leading-none">18</p>
+                    <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Secure Vaults</p>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-2xl font-serif text-[#722f3f] leading-none">72</p>
+                    <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Territories</p>
+                  </div>
+                  <span className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-100 to-transparent"></span>
+                </div>
+
+                <div className="flex items-start space-x-3 group cursor-pointer pt-2 px-8">
+                  <Zap size={14} className="text-[#d4af37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div className="space-y-1">
+                    <p className="text-[9px] uppercase font-bold tracking-widest text-[#2a2a2a]\">Concierge Logistics Active</p>
+                    <p className="text-[8px] font-lora italic text-gray-400 leading-relaxed pb-8">
+                      Global climate-controlled dispatches monitored 24/7 via private encrypted link.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Bottom Right Overlay: Prestige Network Indicator - Desktop Only */}
+        <div className="hidden md:block absolute bottom-0 right-0 z-10 bg-white/95 backdrop-blur-md p-8 border-t border-l border-[#d4af37]/30 shadow-2xl max-w-xs animate-in slide-in-from-bottom-right duration-1000">
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pb-6 border-b border-gray-100 -mx-8 px-8">
               <div className="flex items-center space-x-2 text-[#722f3f]">
                 <Globe size={18} className="animate-[spin_10s_linear_infinite]" />
                 <h4 className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">The Prestige Network</h4>
@@ -520,7 +606,7 @@ const Contact: React.FC<ContactProps> = ({ onNavigate, onShowToast }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-8 border-y border-gray-100 py-4">
+            <div className="grid grid-cols-2 gap-8 border-b border-gray-100 pb-4 -mx-8 px-8">
               <div className="space-y-1">
                 <p className="text-2xl font-serif text-[#722f3f] leading-none">18</p>
                 <p className="text-[8px] uppercase tracking-[0.2em] font-bold text-gray-400">Secure Vaults</p>
